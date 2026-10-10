@@ -1,6 +1,6 @@
 {
   "candidate_file_count": 103,
-  "candidate_total_bytes": 12374726,
+  "candidate_total_bytes": 12374698,
   "size_scope": "excludes the two self-referential audit JSON files",
   "largest_files": [
     {
