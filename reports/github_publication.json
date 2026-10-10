@@ -1,0 +1,20 @@
+{
+  "repository_url": "https://github.com/linluluhh/ecommerce-business-analysis",
+  "visibility": "public",
+  "default_branch": "main",
+  "initial_verified_commit": "a7bd1158b4879834c0e4a99f145f1244331f54cf",
+  "license": "MIT",
+  "topics": [
+    "business-analytics",
+    "data-analysis",
+    "data-quality",
+    "ecommerce",
+    "pandas",
+    "portfolio",
+    "python",
+    "sql"
+  ],
+  "push_verified": true,
+  "dashboard_public_deployment": false,
+  "verification_scope": "Initial source/content commit verified remotely; subsequent publication-record commit retains the same analytics results."
+}

@@ -1,6 +1,6 @@
 {
-  "candidate_file_count": 104,
-  "candidate_total_bytes": 12376194,
+  "candidate_file_count": 105,
+  "candidate_total_bytes": 12377181,
   "size_scope": "excludes the two self-referential audit JSON files",
   "largest_files": [
     {
@@ -188,8 +188,10 @@
       "exit_code": 0
     }
   ],
-  "git_remotes": [],
+  "git_remotes": [
+    "origin"
+  ],
   "repository_license": "MIT",
   "dashboard_public_deployment": false,
-  "github_push_performed": false
+  "github_push_performed": true
 }

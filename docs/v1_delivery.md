@@ -25,4 +25,4 @@
 异常价格数量的正确值、SKU999成本、两笔超额退款、缺失广告花费及疑似停投/漏报，均无可靠源凭证，未编造修正。V1采用透明的临时分析范围，不能给精确财务净利润，也不能从观察数据识别全部独立因果贡献。AI周报示例未调用外部API，结构和指标引用验证不能替代人对解释的核查。
 
 ## 已有学习成果保护
-原始学习Notebook、orders.xlsx、generate_data.py、data_quality_progress.md均保留。新增_v1 Notebook用于整理复现；没有重写学习过程。项目尚未上传GitHub，上传时排除.gitignore列出的环境和浏览器缓存。
+原始学习Notebook、orders.xlsx、generate_data.py、data_quality_progress.md均保留。新增_v1 Notebook用于整理复现；没有重写学习过程。项目已按授权公开发布，状态见reports/github_publication.json；环境、浏览器缓存及历史学习文件未提交。

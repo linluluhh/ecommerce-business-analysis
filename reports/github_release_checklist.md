@@ -1,6 +1,6 @@
 # GitHub作品集发布前检查清单
 
-日期：2026-10-10。**基于模拟数据的业务分析项目，不代表真实经营收益。** 本次只做V1文档、展示、代码检查和本地Git准备，不进入V2。
+日期：2026-10-10。**基于模拟数据的业务分析项目，不代表真实经营收益。** 本次完成V1文档、展示、代码检查、本地Git提交及已授权的GitHub公开发布，不进入V2。
 
 ## 发布前检查
 
@@ -14,11 +14,11 @@
 |README图片/链接|通过|7张经过审查的展示图片；全部本地链接对实际Git候选目标校验，未编造在线站点。|
 |文件路径/编码|通过|源代码没有固定本机路径；JSON解码后检查，避免lambda转义换行误报。文本使用LF；CSV禁用Git换行转换，保留raw哈希。|
 |实际候选安全扫描|通过当前候选|扫描Git索引真实blob而非只看gitignore；没有用户密钥、私有邮箱、本机路径、作者元数据或缓存进入候选。内嵌Plotly逐字比对安装包后单独审核，仍扫描页面自身。|
-|Git历史检查|通过本地可达历史检查|项目及父目录原无仓库；本地提交后已扫描全部可达历史blob，无安全发现。检查结果见github_release_evidence.json；远程推送仍未执行。|
+|Git历史检查|通过本地可达历史检查|项目及父目录原无仓库；本地提交后已扫描全部可达历史blob，无安全发现。检查结果见github_release_evidence.json；远程推送及提交核对已完成。|
 |仓库大小|通过|公开候选约11.8 MiB，最大HTML约4.64 MiB，均低于25 MiB检查阈值；大小与名单见候选证据。|
 |Markdown展示|通过本地显示检查|以Markdown表格渲染并用浏览器截图检查中英文、表格和图片。Mermaid采用GitHub支持的语法，但未在GitHub线上实际渲染，不标为线上验证通过。|
 |项目许可|已确认MIT|用户已授权推荐方案，根目录LICENSE已创建；第三方版权保留，系统字体不分发。|
-|创建公开仓库/推送|用户已授权，执行中|实际完成状态以GitHub仓库及发布记录为准；Dashboard不公开部署。|
+|创建公开仓库/推送|通过|已创建公开仓库并正常推送main，远程提交和MIT文件核对一致；Dashboard未部署。|
 
 ## 公开候选与排除范围
 
@@ -55,4 +55,8 @@ Topics：python、sql、pandas、data-analysis、business-analytics、ecommerce�
 - [V1正式验收](v1_acceptance_report.md)
 - [许可与第三方说明](../docs/third_party_notices.md)
 
-当前检查不是形式化安全证明；许可决定、生产费用完整性和因果验证仍有明确边界。未执行的远程推送、在线Markdown渲染和公开部署均不标为通过。
+当前检查不是形式化安全证明；许可决定、生产费用完整性和因果验证仍有明确边界。远程推送已执行并验证；GitHub线上Mermaid渲染和Dashboard公开部署未执行，不标为通过。
+
+## 发布结果
+
+仓库：https://github.com/linluluhh/ecommerce-business-analysis 。公开、main、MIT；Topics已配置。初始发布提交与本地一致，详见[发布记录](github_publication.json)。Dashboard继续离线使用，没有启用GitHub Pages。

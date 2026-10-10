@@ -211,8 +211,8 @@
   },
   {
     "file": "docs/v1_delivery.md",
-    "bytes": 2158,
-    "blob": "71874b3d27b754c4172706b47d68ca0aa2aba33c"
+    "bytes": 2203,
+    "blob": "0e9dc6c1a4b4c83f6e3ebecd013b7525e18ded93"
   },
   {
     "file": "notebooks/.gitkeep",
@@ -264,9 +264,14 @@
     "note": "audit output: self hash and size omitted"
   },
   {
+    "file": "reports/github_publication.json",
+    "bytes": 601,
+    "blob": "2a18623454294d089dbfecfed3d107e1ed0e3c4f"
+  },
+  {
     "file": "reports/github_release_checklist.md",
-    "bytes": 5389,
-    "blob": "fb044845f363d4b16e628857764b5f24cfc39a1f"
+    "bytes": 5730,
+    "blob": "f991d11a3e088aa6c16597dea15c1bbf495c5bee"
   },
   {
     "file": "reports/github_release_evidence.json",
