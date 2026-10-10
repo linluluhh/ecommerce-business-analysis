@@ -1,0 +1,9 @@
+﻿order_id,order_date,customer_id,sku,platform,country,quantity,unit_price,discount,shipping_fee,order_status,platform_fee,sku_standard,platform_standard,country_standard,order_date_standard,invalid_price,invalid_quantity,review_high_price,review_high_quantity,invalid_discount,invalid_fee,needs_review,order_sales,month
+O0000074,2026-08-01,C001187,SKU002,TikTok Shop,US,999,32.00000000,0.96000000,2.80000000,completed,1.86000000,SKU002,TikTok Shop,US,2026-08-01,False,False,False,True,False,False,True,31967.04000000,2026-08
+O0000091,2026-08-01,C002615,SKU001,Amazon,DE,0,39.78000000,0.00000000,3.80000000,completed,5.97000000,SKU001,Amazon,DE,2026-08-01,False,True,False,False,False,False,True,0.00000000,2026-08
+O0002524,2026-08-15,C002972,SKU004,Shopee,PH,0,36.90000000,1.84000000,2.80000000,completed,2.80000000,SKU004,Shopee,PH,2026-08-15,False,True,False,False,True,False,True,-1.84000000,2026-08
+O0003613,2026-08-22,C003160,SKU001,TikTok Shop,GB,1,-1.00000000,0.00000000,3.80000000,cancelled,2.43000000,SKU001,TikTok Shop,GB,2026-08-22,True,False,False,False,True,False,True,0.00000000,2026-08
+O0004259,2026-08-25,C001566,SKU001,Amazon,GB,999,40.56000000,4.06000000,4.40000000,cancelled,11.56000000,SKU001,Amazon,GB,2026-08-25,False,False,False,True,False,False,True,0.00000000,2026-08
+O0004799,2026-08-29,C001881,SKU006,TikTok Shop,GB,1,9999.00000000,0.00000000,3.80000000,completed,1.00000000,SKU006,TikTok Shop,GB,2026-08-29,False,False,True,False,False,False,True,9999.00000000,2026-08
+O0005861,2026-09-05,C003729,SKU011,TikTok Shop,US,1,9999.00000000,2.99000000,2.80000000,completed,1.20000000,SKU011,TikTok Shop,US,2026-09-05,False,False,True,False,False,False,True,9996.01000000,2026-09
+O0008837,2026-09-24,C000299,SKU005,TikTok Shop,US,1,-1.00000000,4.48000000,2.80000000,completed,1.41000000,SKU005,TikTok Shop,US,2026-09-24,True,False,False,False,True,False,True,-5.48000000,2026-09

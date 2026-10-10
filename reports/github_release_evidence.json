@@ -1,0 +1,190 @@
+{
+  "candidate_file_count": 103,
+  "candidate_total_bytes": 12374726,
+  "size_scope": "excludes the two self-referential audit JSON files",
+  "largest_files": [
+    {
+      "file": "dashboard/index.html",
+      "bytes": 4870097,
+      "blob": "984dd2efe6e4544ebfad66f8ac09d399f568390e"
+    },
+    {
+      "file": "data/processed/profit_orders.csv",
+      "bytes": 2698761,
+      "blob": "25746549f8070fefcc4119c4c08b7b2dc88c2c79"
+    },
+    {
+      "file": "data/processed/orders_clean.csv",
+      "bytes": 1961523,
+      "blob": "4b59a3e6f033f763f48aec3ed174865a702ea16b"
+    },
+    {
+      "file": "data/raw/orders.csv",
+      "bytes": 782079,
+      "blob": "d36cdf13ff0e6f412ce66339c7fc980936e5e0b0"
+    },
+    {
+      "file": "data/processed/ads_clean.csv",
+      "bytes": 279980,
+      "blob": "1156235ba5f0ae3349262cac17622c26674b2eda"
+    }
+  ],
+  "candidate_findings": [],
+  "history_findings": [],
+  "readme_links": [
+    {
+      "target": "docs/data_dictionary.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "docs/methodology.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/data_quality_overview.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "reports/data_quality_report.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "docs/data_quality_log.xlsx",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "data/processed/quality_issues.csv",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/monthly_sales_profit.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/platform_contribution_change.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/sku_contribution_change.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/profit_bridge.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/ads_refund_metrics.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "reports/september_business_report.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "reports/v1_acceptance_report.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "assets/images/dashboard_preview.png",
+      "image": true,
+      "valid_staged_target": true
+    },
+    {
+      "target": "dashboard/index.html",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "sql/",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "notebooks/01_data_cleaning_v1.ipynb",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "notebooks/02_business_analysis_v1.ipynb",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "docs/resume_project_description.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "reports/github_release_checklist.md",
+      "image": false,
+      "valid_staged_target": true
+    },
+    {
+      "target": "docs/third_party_notices.md",
+      "image": false,
+      "valid_staged_target": true
+    }
+  ],
+  "markdown_fences_balanced": true,
+  "intro_characters": 138,
+  "notebooks_executed": true,
+  "full_reproduction_steps": [
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/run_project_v1.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/build_portfolio.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/run_notebooks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/weekly_report.py",
+        "--ai-draft",
+        "reports/weekly/ai_draft_example.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/validate_project_v1.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "git_remotes": [],
+  "repository_license": "not_selected",
+  "dashboard_public_deployment": false,
+  "github_push_performed": false
+}

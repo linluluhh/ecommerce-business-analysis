@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db
+~$*
+data/reproduced/
+.dashboard-browser/
+*.sqlite-journal
+node_modules/
+.venv-acceptance/
+.acceptance-work/
+scripts/__pycache__/
+# Preserve local learning artifacts; publish the portable V1 notebooks instead.
+data/processed/orders.xlsx
+*.inspect.ndjson
+reports/quality_log_preview_*.png
+# Historical learning artifacts are retained locally, not in the portfolio release.
+notebooks/01_data_quality.ipynb
+reports/data_quality_progress.md
+docs/portfolio_and_interview.md
+# Rebuildable binary/helper artifacts; full raw data and analysis CSV remain public candidates.
+data/processed/business_analysis.sqlite
+dashboard/overview.png
+dashboard/preview.png
+reports/data_quality_log_inspection.json
+# Internal workbook rendering helper depends on the local Codex artifact runtime.
+scripts/build_data_quality_log.mjs
+scripts/generate_data.py
+data/processed/order_facts.csv
+.github-release-work/

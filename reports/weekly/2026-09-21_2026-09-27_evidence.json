@@ -1,0 +1,38 @@
+{
+  "project": "基于模拟数据的业务分析项目",
+  "start": "2026-09-21",
+  "end": "2026-09-27",
+  "scope": "成本已知有效订单；同范围批准有效退款按确认日；全部已记录广告费；不是净利润",
+  "metrics": {
+    "current": {
+      "sales": 30764.87,
+      "units": 1170,
+      "orders": 1027,
+      "gross_profit": 17632.87,
+      "refunds": 1203.36,
+      "recorded_ads": 3522.38,
+      "missing_ad_spend": 2,
+      "ad_record_count": 251,
+      "expected_ad_record_count": 252,
+      "contribution": 6579.0
+    },
+    "previous": {
+      "sales": 29466.41,
+      "units": 1130,
+      "orders": 971,
+      "gross_profit": 16848.41,
+      "refunds": 1032.5,
+      "recorded_ads": 3540.27,
+      "missing_ad_spend": 3,
+      "ad_record_count": 252,
+      "expected_ad_record_count": 252,
+      "contribution": 6278.74
+    }
+  },
+  "limitations": [
+    "订单价格数量异常暂排除",
+    "未知商品成本未填0",
+    "广告缺失未填0，固定活动每日模式仅作为缺行提示",
+    "变化是描述结果，不足以证明业务原因"
+  ]
+}

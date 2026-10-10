@@ -1,0 +1,515 @@
+[
+  {
+    "file": ".gitattributes",
+    "bytes": 137,
+    "blob": "2e0310da6528c299170f782eb8b1e8da3868eaa4"
+  },
+  {
+    "file": ".gitignore",
+    "bytes": 966,
+    "blob": "0b3d7ee967d153019580f4e1c8e12ceda1272581"
+  },
+  {
+    "file": "README.md",
+    "bytes": 12414,
+    "blob": "59aeaf438d26fcf676e0f685257a4bab9b26fe66"
+  },
+  {
+    "file": "assets/images/ads_refund_metrics.png",
+    "bytes": 101090,
+    "blob": "ae78d3501a3757110b0986c4e493f508b7048d1e"
+  },
+  {
+    "file": "assets/images/dashboard_preview.png",
+    "bytes": 121681,
+    "blob": "7f79eecb016c6d415e07678d9488c76f1f109984"
+  },
+  {
+    "file": "assets/images/data_quality_overview.png",
+    "bytes": 73171,
+    "blob": "c596737b2707817da45de981692904159885ccf2"
+  },
+  {
+    "file": "assets/images/monthly_sales_profit.png",
+    "bytes": 88605,
+    "blob": "a67d5e8ad089d3fd84c819cf329448ea2f762139"
+  },
+  {
+    "file": "assets/images/platform_contribution_change.png",
+    "bytes": 55975,
+    "blob": "797a1be0aa3337916e7b59ca30227619902a70ed"
+  },
+  {
+    "file": "assets/images/profit_bridge.png",
+    "bytes": 102421,
+    "blob": "18485175a34daf6cde8a8251a2f6f0224d667189"
+  },
+  {
+    "file": "assets/images/sku_contribution_change.png",
+    "bytes": 53036,
+    "blob": "357fd52e17bb633363776ee97de350f98dffbe19"
+  },
+  {
+    "file": "dashboard/.gitkeep",
+    "bytes": 0,
+    "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+    "file": "dashboard/index.html",
+    "bytes": 4870097,
+    "blob": "984dd2efe6e4544ebfad66f8ac09d399f568390e"
+  },
+  {
+    "file": "data/processed/.gitkeep",
+    "bytes": 0,
+    "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+    "file": "data/processed/ads_clean.csv",
+    "bytes": 279980,
+    "blob": "1156235ba5f0ae3349262cac17622c26674b2eda"
+  },
+  {
+    "file": "data/processed/ads_missing_expected_rows.csv",
+    "bytes": 482,
+    "blob": "d0cae518b5e4d20955b204f54979a5530cba9723"
+  },
+  {
+    "file": "data/processed/customers_clean.csv",
+    "bytes": 215282,
+    "blob": "5826ec775b4692942eaa399c8db85e35f7aba52d"
+  },
+  {
+    "file": "data/processed/inventory_clean.csv",
+    "bytes": 38477,
+    "blob": "ac203c8c180d2473709478c6a5def868e2d774c9"
+  },
+  {
+    "file": "data/processed/orders_clean.csv",
+    "bytes": 1961523,
+    "blob": "4b59a3e6f033f763f48aec3ed174865a702ea16b"
+  },
+  {
+    "file": "data/processed/orders_quarantine.csv",
+    "bytes": 1911,
+    "blob": "7cf0784897ed48dddf094a0276db12cf4a7514ae"
+  },
+  {
+    "file": "data/processed/products_clean.csv",
+    "bytes": 960,
+    "blob": "0289f13b405853ba34853113a35997877e036d29"
+  },
+  {
+    "file": "data/processed/profit_orders.csv",
+    "bytes": 2698761,
+    "blob": "25746549f8070fefcc4119c4c08b7b2dc88c2c79"
+  },
+  {
+    "file": "data/processed/profit_refunds.csv",
+    "bytes": 42796,
+    "blob": "28e1bda932991e65bd269a00a53ecda128753dc9"
+  },
+  {
+    "file": "data/processed/quality_issues.csv",
+    "bytes": 17972,
+    "blob": "3cd2e92405a00403410b765cc431a1f257f0d80b"
+  },
+  {
+    "file": "data/processed/refunds_clean.csv",
+    "bytes": 49642,
+    "blob": "d9db119214d5918d4725ca666885d7336e32e9fe"
+  },
+  {
+    "file": "data/processed/refunds_quarantine.csv",
+    "bytes": 598,
+    "blob": "b68a4c688cb1b08b41c2d69abc0cd15be8b864c1"
+  },
+  {
+    "file": "data/raw/ads.csv",
+    "bytes": 144634,
+    "blob": "626b63de88c253069e097d4d49b1b1a7d5b4dcaf"
+  },
+  {
+    "file": "data/raw/customers.csv",
+    "bytes": 148246,
+    "blob": "8a64f53fa2b71ce2a632bf80555255145e8cf4f3"
+  },
+  {
+    "file": "data/raw/inventory.csv",
+    "bytes": 23283,
+    "blob": "01a9eefe0c0e7264a1b23c02ab37b70b88db77c7"
+  },
+  {
+    "file": "data/raw/manifest.json",
+    "bytes": 1045,
+    "blob": "25970658809937f293ed07e772961dec771c52a6"
+  },
+  {
+    "file": "data/raw/orders.csv",
+    "bytes": 782079,
+    "blob": "d36cdf13ff0e6f412ce66339c7fc980936e5e0b0"
+  },
+  {
+    "file": "data/raw/products.csv",
+    "bytes": 710,
+    "blob": "ee5d1c967c277af3fb927085f69b60cf5509cffd"
+  },
+  {
+    "file": "data/raw/refunds.csv",
+    "bytes": 18609,
+    "blob": "246584c52f2ac6ef5a391ef214de3ef816ba0f7a"
+  },
+  {
+    "file": "docs/data_dictionary.md",
+    "bytes": 4477,
+    "blob": "07067368d61f1f6cc2fdcde0e8cbc71d66135ba6"
+  },
+  {
+    "file": "docs/data_quality_log.xlsx",
+    "bytes": 12463,
+    "blob": "66453916f579cd21f534d3a3ee519f52039983c3"
+  },
+  {
+    "file": "docs/github_repository_metadata.json",
+    "bytes": 451,
+    "blob": "0e82dfbaf11ba1008dd0809cc6efb9f6759a0150"
+  },
+  {
+    "file": "docs/methodology.md",
+    "bytes": 2993,
+    "blob": "838ee160a1178cb2d5015ec076de06683a61d38e"
+  },
+  {
+    "file": "docs/project_flow.md",
+    "bytes": 822,
+    "blob": "c1160daf3b67bcf592c143f416afad30ccab8020"
+  },
+  {
+    "file": "docs/readme_template.md",
+    "bytes": 12414,
+    "blob": "59aeaf438d26fcf676e0f685257a4bab9b26fe66"
+  },
+  {
+    "file": "docs/resume_project_description.md",
+    "bytes": 5553,
+    "blob": "d02eb0870ab8281cb459afd7ad2a8ad0a4dc7afe"
+  },
+  {
+    "file": "docs/third_party/plotly_LICENSE.txt",
+    "bytes": 1086,
+    "blob": "13ffac3c942fd6f6e8af7d4e58860bb306db3e2f"
+  },
+  {
+    "file": "docs/third_party_notices.md",
+    "bytes": 2129,
+    "blob": "93ca3475264ad4a56cb9a0ad4d73175c016206a9"
+  },
+  {
+    "file": "docs/v1_delivery.md",
+    "bytes": 2158,
+    "blob": "71874b3d27b754c4172706b47d68ca0aa2aba33c"
+  },
+  {
+    "file": "notebooks/.gitkeep",
+    "bytes": 0,
+    "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+    "file": "notebooks/01_data_cleaning_v1.ipynb",
+    "bytes": 28088,
+    "blob": "7bb85dc256c8909ea985a8c799c93c2909e2442c"
+  },
+  {
+    "file": "notebooks/02_business_analysis_v1.ipynb",
+    "bytes": 228841,
+    "blob": "871163eb2359f0ff5707137f8cadeec9d5c32146"
+  },
+  {
+    "file": "reports/.gitkeep",
+    "bytes": 0,
+    "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+    "file": "reports/acceptance_environment.json",
+    "bytes": 445,
+    "blob": "ce6f70c764f1b9666a552192117f12c486bbeb2f"
+  },
+  {
+    "file": "reports/acceptance_evidence.json",
+    "bytes": 1033,
+    "blob": "6040bd1ba470ce5301e3f7a87d1f9a82a6a866bc"
+  },
+  {
+    "file": "reports/acceptance_reproduction.json",
+    "bytes": 3620,
+    "blob": "1218bbf8d1e5800190626f47c2c1734d9f69ab05"
+  },
+  {
+    "file": "reports/data_quality_log_source.json",
+    "bytes": 15966,
+    "blob": "3d0622421c9b1e24f3c8065b15ddd303c0639d27"
+  },
+  {
+    "file": "reports/data_quality_report.md",
+    "bytes": 3168,
+    "blob": "efb67b11a36e689f783399e6a7ef29fd892daea5"
+  },
+  {
+    "file": "reports/github_candidate_manifest.json",
+    "note": "audit output: self hash and size omitted"
+  },
+  {
+    "file": "reports/github_release_checklist.md",
+    "bytes": 5495,
+    "blob": "fdd6e19af648b5a3f0b0ef057c248c23fc62cd81"
+  },
+  {
+    "file": "reports/github_release_evidence.json",
+    "note": "audit output: self hash and size omitted"
+  },
+  {
+    "file": "reports/github_reproduction_evidence.json",
+    "bytes": 1972,
+    "blob": "0a3f495480e4849af82124af8be703604ef89b7e"
+  },
+  {
+    "file": "reports/portfolio_visuals.json",
+    "bytes": 371,
+    "blob": "506b0c115f6b70b4d7ea5b05c3dcb90b53aa851a"
+  },
+  {
+    "file": "reports/september_business_report.md",
+    "bytes": 7556,
+    "blob": "ea4d2d3e07c3c6de695913284485efe1efc7a5c1"
+  },
+  {
+    "file": "reports/tables/01_monthly_profit_sql.csv",
+    "bytes": 237,
+    "blob": "94b01014ed811a1915d6340aa9f09678c7c7167e"
+  },
+  {
+    "file": "reports/tables/02_platform_profit_sql.csv",
+    "bytes": 509,
+    "blob": "3a1920bd48c4b69f0b6f6c0d4442384f826056ef"
+  },
+  {
+    "file": "reports/tables/03_sku_refund_rates_sql.csv",
+    "bytes": 875,
+    "blob": "421144a80f7b8b7f4700879255ea71985369da9e"
+  },
+  {
+    "file": "reports/tables/04_quality_checks_sql.csv",
+    "bytes": 133,
+    "blob": "440e14d5106b27c570d691df852b040e9a065da8"
+  },
+  {
+    "file": "reports/tables/advertising_efficiency.csv",
+    "bytes": 542,
+    "blob": "1eada704247e487889b690a1b93da603caf2f85e"
+  },
+  {
+    "file": "reports/tables/category_mix.csv",
+    "bytes": 855,
+    "blob": "5d861693b21d72133e82f8ab2ca4b8f13bf5f173"
+  },
+  {
+    "file": "reports/tables/country_changes.csv",
+    "bytes": 257,
+    "blob": "fda27c883858b8dd4d18011a98a11d9420182546"
+  },
+  {
+    "file": "reports/tables/country_performance.csv",
+    "bytes": 601,
+    "blob": "e8402a18cc476b3fd0a51ffdc422cce444bd8ff1"
+  },
+  {
+    "file": "reports/tables/gross_profit_decomposition.csv",
+    "bytes": 227,
+    "blob": "a85febad6b0f153f22410b3947062f87f06f16a1"
+  },
+  {
+    "file": "reports/tables/monthly_profit.csv",
+    "bytes": 501,
+    "blob": "08bfa2fe0ece875b6746fc246b96ab3bccacd099"
+  },
+  {
+    "file": "reports/tables/monthly_sales.csv",
+    "bytes": 242,
+    "blob": "6f57e57113d7a1763d31c79bdd9fd934bd016679"
+  },
+  {
+    "file": "reports/tables/platform_changes.csv",
+    "bytes": 242,
+    "blob": "9529f49e9c4200e4f43c651b17ec05f27b9361d2"
+  },
+  {
+    "file": "reports/tables/platform_discounts.csv",
+    "bytes": 415,
+    "blob": "0bbf9e2905a96248163405837c55d994a3c76072"
+  },
+  {
+    "file": "reports/tables/platform_profit.csv",
+    "bytes": 1207,
+    "blob": "5412e89c064bfac197921ef997b4091db4d534b9"
+  },
+  {
+    "file": "reports/tables/profit_bridge.csv",
+    "bytes": 236,
+    "blob": "7b2ddf90df986d79e756b34a88be2ed224d4cff6"
+  },
+  {
+    "file": "reports/tables/refund_cohorts_12d.csv",
+    "bytes": 865,
+    "blob": "5f42ecdaf7fda8a3c89e6da1d358f35c71889c49"
+  },
+  {
+    "file": "reports/tables/refund_reasons.csv",
+    "bytes": 3412,
+    "blob": "17aa6514ffb9a3bcbdcdf9ba28f3b4166921c129"
+  },
+  {
+    "file": "reports/tables/sales_sensitivity.csv",
+    "bytes": 229,
+    "blob": "6afc6d49f79fa1bbf1b65f02061de25aaafda264"
+  },
+  {
+    "file": "reports/tables/scenarios.csv",
+    "bytes": 407,
+    "blob": "8f2e4f3c0f0a12d8cf73a8ee1786e5e308507b95"
+  },
+  {
+    "file": "reports/tables/sku_changes.csv",
+    "bytes": 688,
+    "blob": "0259f888c3a86c89c10718effa7e1c84308acbbb"
+  },
+  {
+    "file": "reports/tables/sku_profit.csv",
+    "bytes": 4017,
+    "blob": "eeae5c41180e6580ad80fc6ea9a49a8c1457bffa"
+  },
+  {
+    "file": "reports/tables/summary.json",
+    "bytes": 1817,
+    "blob": "33e3cdeb5a8fb213baeb0dd85846875dba502f79"
+  },
+  {
+    "file": "reports/tables/table_profiles.csv",
+    "bytes": 665,
+    "blob": "46432190bcc37a129d81d79093ca19dde5e7890c"
+  },
+  {
+    "file": "reports/tables/unknown_cost_scope.csv",
+    "bytes": 69,
+    "blob": "91b999838120435cbeb2f581bd39b3849c59421b"
+  },
+  {
+    "file": "reports/v1_acceptance_report.md",
+    "bytes": 12099,
+    "blob": "4c0b404d6c79cff14365feb9e74b4f1b69ed76a3"
+  },
+  {
+    "file": "reports/validation.json",
+    "bytes": 663,
+    "blob": "42173971c74aca15524125f5d8ae0ff47ffd9f0f"
+  },
+  {
+    "file": "reports/weekly/2026-09-21_2026-09-27.md",
+    "bytes": 1373,
+    "blob": "83cef158c57460b620b77868776e38b39666337c"
+  },
+  {
+    "file": "reports/weekly/2026-09-21_2026-09-27_ai_prompt.txt",
+    "bytes": 1951,
+    "blob": "e782cb1332e7f411ce96f9a086fc742a361b273d"
+  },
+  {
+    "file": "reports/weekly/2026-09-21_2026-09-27_ai_validation.json",
+    "bytes": 177,
+    "blob": "35536a9669059a20236eb269f6d4915aadef1eb1"
+  },
+  {
+    "file": "reports/weekly/2026-09-21_2026-09-27_evidence.json",
+    "bytes": 1098,
+    "blob": "3346565ab9bf97d010d88235e01aa9442a93f728"
+  },
+  {
+    "file": "reports/weekly/ai_draft_example.json",
+    "bytes": 716,
+    "blob": "970020fbf5b4db4085872244c4db8ac823176afd"
+  },
+  {
+    "file": "requirements-acceptance-lock.txt",
+    "bytes": 2015,
+    "blob": "d5a70477a6cece9fd70f50455001fda3ca1c7a83"
+  },
+  {
+    "file": "requirements.txt",
+    "bytes": 250,
+    "blob": "86a752048438e90b2a8551ae008b171a179de17b"
+  },
+  {
+    "file": "scripts/audit_acceptance_v1.py",
+    "bytes": 11465,
+    "blob": "a2657fa032d6dbe62f127669288daf3decd21b87"
+  },
+  {
+    "file": "scripts/build_portfolio.py",
+    "bytes": 8740,
+    "blob": "073861f21746fb5adf3be0b04cf0e574981cabd9"
+  },
+  {
+    "file": "scripts/check_github_release.py",
+    "bytes": 7835,
+    "blob": "69635160cb268425915c0cf0554ee34d25771033"
+  },
+  {
+    "file": "scripts/prepare_github_portfolio.py",
+    "bytes": 7182,
+    "blob": "5453fdc3449ed6ccf2eddcfa4bb4c50de4af96b7"
+  },
+  {
+    "file": "scripts/run_notebooks.py",
+    "bytes": 1129,
+    "blob": "f197eaae710d5800efadc5a66c831134d9e81731"
+  },
+  {
+    "file": "scripts/run_project_v1.py",
+    "bytes": 38243,
+    "blob": "44a8cb782f1a755ff180b73db0d19b3a9c66395b"
+  },
+  {
+    "file": "scripts/validate_project_v1.py",
+    "bytes": 4587,
+    "blob": "2d39ced4106fbd8eca215bf636317c2e3bf45450"
+  },
+  {
+    "file": "scripts/weekly_report.py",
+    "bytes": 5664,
+    "blob": "0744d99b1c57e9cee94f0ffaca08f76abfb2c4bd"
+  },
+  {
+    "file": "sql/.gitkeep",
+    "bytes": 0,
+    "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+    "file": "sql/01_monthly_profit.sql",
+    "bytes": 710,
+    "blob": "943910db9f6dd291eb9562827d4866a1c390d4cc"
+  },
+  {
+    "file": "sql/02_platform_profit.sql",
+    "bytes": 738,
+    "blob": "da764321eadebc9e5b625c347a22ef2097411b6a"
+  },
+  {
+    "file": "sql/03_sku_refund_rates.sql",
+    "bytes": 574,
+    "blob": "37f41826df2f6b050708b4fb9f70cd5b2667a9b6"
+  },
+  {
+    "file": "sql/04_quality_checks.sql",
+    "bytes": 585,
+    "blob": "35a5633ba4e313e2ce225121c037de38bd464c3c"
+  }
+]

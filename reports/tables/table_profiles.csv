@@ -1,0 +1,7 @@
+﻿table,grain,business_key,raw_rows,columns,exact_duplicate_excess,duplicate_key_rows,missing_cells
+orders,一笔单SKU订单；根据数据字典及重复行全字段复核，非多商品订单明细,order_id,9970,12,18,36,12
+products,一行一个商品SKU，成本两个月固定,sku,12,6,0,0,0
+inventory,日期×SKU，共享库存日报,date+sku,732,6,0,0,0
+refunds,一笔售后申请；order_id非主键，可有多笔退款,refund_id,312,7,0,0,0
+ads,日期×平台×活动×SKU广告日报；conversions是订单数,date+platform+campaign_id+sku,2192,9,0,0,9
+customers,一个注册客户；新老客标签相对8月1日固定,customer_id,4807,4,7,14,0

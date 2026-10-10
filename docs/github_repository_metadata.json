@@ -1,0 +1,8 @@
+{
+  "name": "ecommerce-business-analysis",
+  "description": "Cross-border e-commerce sales, profit diagnostics, data quality and business analytics using Python, SQL and Pandas.",
+  "topics": ["python", "sql", "pandas", "data-analysis", "business-analytics", "ecommerce", "data-quality", "portfolio"],
+  "visibility_requested": "public_pending_explicit_confirmation",
+  "license": "not_selected",
+  "dashboard": "offline_only_not_publicly_deployed"
+}

@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-10",
+  "fresh_input_only": true,
+  "steps": [
+    {
+      "step": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": [
+        "scripts/run_project_v1.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": [
+        "scripts/build_portfolio.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": [
+        "scripts/run_notebooks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": [
+        "scripts/weekly_report.py",
+        "--ai-draft",
+        "reports/weekly/ai_draft_example.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "step": [
+        "scripts/validate_project_v1.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "csv_comparisons": [
+    {
+      "file": "reports/tables/01_monthly_profit_sql.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/02_platform_profit_sql.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/03_sku_refund_rates_sql.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/04_quality_checks_sql.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/advertising_efficiency.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/category_mix.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/country_changes.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/country_performance.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/gross_profit_decomposition.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/monthly_profit.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/monthly_sales.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/platform_changes.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/platform_discounts.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/platform_profit.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/profit_bridge.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/refund_cohorts_12d.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/refund_reasons.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/sales_sensitivity.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/scenarios.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/sku_changes.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/sku_profit.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/table_profiles.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "reports/tables/unknown_cost_scope.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/orders_clean.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/products_clean.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/inventory_clean.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/refunds_clean.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/ads_clean.csv",
+      "byte_identical": true
+    },
+    {
+      "file": "data/processed/customers_clean.csv",
+      "byte_identical": true
+    }
+  ],
+  "notebook_kernels": "Explicit current isolated interpreter; no base environment kernel",
+  "raw_regenerated": false
+}

@@ -1,0 +1,16 @@
+{
+  "bullets": [
+    {
+      "metric_keys": ["current.sales", "previous.sales", "current.contribution", "previous.contribution"],
+      "comment": "当前临时样本的销售额与经营贡献均比前周增加，但不能据此认定改进措施已生效。"
+    },
+    {
+      "metric_keys": ["current.refunds", "previous.refunds"],
+      "comment": "本周确认退款金额增加，应继续查看订单所属月份与商品售后原因。"
+    },
+    {
+      "metric_keys": ["current.missing_ad_spend", "current.ad_record_count", "current.expected_ad_record_count"],
+      "comment": "广告费用仍有缺失且存在疑似日报漏报，需核实账单；本报告为模拟业务临时口径。"
+    }
+  ]
+}

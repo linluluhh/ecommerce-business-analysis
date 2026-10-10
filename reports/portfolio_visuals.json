@@ -1,0 +1,14 @@
+{
+  "source": "reports/tables/*.csv; verified browser screenshot",
+  "chinese_font_available": true,
+  "images": [
+    "ads_refund_metrics.png",
+    "dashboard_preview.png",
+    "data_quality_overview.png",
+    "monthly_sales_profit.png",
+    "platform_contribution_change.png",
+    "profit_bridge.png",
+    "sku_contribution_change.png"
+  ],
+  "not_ai_generated": true
+}

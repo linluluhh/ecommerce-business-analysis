@@ -1,0 +1,40 @@
+{
+  "data_type": "Synthetic / 模拟数据",
+  "seed": 20260930,
+  "order_period": [
+    "2026-08-01",
+    "2026-09-30"
+  ],
+  "files": {
+    "orders.csv": {
+      "rows": 9970,
+      "columns": 12,
+      "sha256": "38dfc57597bd8d7d9a95be4c0e976ee26eb8fba1c96655bd002ad4a44625109c"
+    },
+    "products.csv": {
+      "rows": 12,
+      "columns": 6,
+      "sha256": "c2d6d8469827f734358df988e9204db1ad92ede96de438d34e5e54c7299b22a1"
+    },
+    "inventory.csv": {
+      "rows": 732,
+      "columns": 6,
+      "sha256": "c1cc6c01fd55a727bf0ad444fdf6f5a5c65552c9e1269d94e1c8f14256003916"
+    },
+    "refunds.csv": {
+      "rows": 312,
+      "columns": 7,
+      "sha256": "b842b5b1f317a7bc102d30b4148164cdfd07e0d2a66a3c74f660fd6fe1352a30"
+    },
+    "ads.csv": {
+      "rows": 2192,
+      "columns": 9,
+      "sha256": "37305e4fb9c7ecbd8b52d8dc5541e56aec5cea49c26da25f0ad126729d6100c3"
+    },
+    "customers.csv": {
+      "rows": 4807,
+      "columns": 4,
+      "sha256": "f70928838eef6c8a91d46817ea0e6130d0caa9794fb16a0ddd38d8062899cdc1"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "raw_unchanged": true,
+  "duplicate_resolution": "18条全字段重复；去重后9952且订单键唯一",
+  "profit_bridge_reconciled": true,
+  "platform_profit_reconciled": true,
+  "sku_profit_reconciled": true,
+  "gross_profit_decomposition_reconciled": true,
+  "sql_pandas_reconciled": true,
+  "stock_reference_orders_inventory_reconciled": true,
+  "independent_raw_cost_check": true,
+  "refund_sql_pandas_reconciled": true,
+  "all_v1_notebooks_executed": true,
+  "ai_invalid_metric_rejected": true,
+  "ai_unprovided_numeric_claim_rejected": true,
+  "dashboard_local_browser_rendered_and_visually_reviewed": true,
+  "dashboard_month_axes_verified": true
+}

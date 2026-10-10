@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# Raw CSV hashes are part of the reproducibility contract: preserve exact bytes.
+*.csv -text
+*.png -text
+*.xlsx -text

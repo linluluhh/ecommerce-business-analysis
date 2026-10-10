@@ -1,0 +1,5 @@
+{
+  "ai_used": true,
+  "source": "reports/weekly/ai_draft_example.json",
+  "status": "通过指标白名单、数字渲染和JSON结构核验；因果与建议由人工复核"
+}

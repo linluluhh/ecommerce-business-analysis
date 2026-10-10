@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-10",
+  "source": "actual Git staged tree exported into a new directory",
+  "tested_tree": "61e661e89ed17cd2491f6f9a346c3b8bc8f10f93",
+  "steps": [
+    {
+      "command": [
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/run_project_v1.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/build_portfolio.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/run_notebooks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/weekly_report.py",
+        "--ai-draft",
+        "reports/weekly/ai_draft_example.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/validate_project_v1.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "csv_tables_byte_identical": [
+    "01_monthly_profit_sql.csv",
+    "02_platform_profit_sql.csv",
+    "03_sku_refund_rates_sql.csv",
+    "04_quality_checks_sql.csv",
+    "advertising_efficiency.csv",
+    "category_mix.csv",
+    "country_changes.csv",
+    "country_performance.csv",
+    "gross_profit_decomposition.csv",
+    "monthly_profit.csv",
+    "monthly_sales.csv",
+    "platform_changes.csv",
+    "platform_discounts.csv",
+    "platform_profit.csv",
+    "profit_bridge.csv",
+    "refund_cohorts_12d.csv",
+    "refund_reasons.csv",
+    "sales_sensitivity.csv",
+    "scenarios.csv",
+    "sku_changes.csv",
+    "sku_profit.csv",
+    "table_profiles.csv",
+    "unknown_cost_scope.csv"
+  ],
+  "raw_hashes_preserved": true,
+  "readme_rebuild_identical": true,
+  "no_hidden_local_data_required": true,
+  "python_environment": "isolated acceptance venv; pip check executed",
+  "browser_checks": {
+    "localhost_command_executed": true,
+    "bind": "127.0.0.1",
+    "dashboard_http_status": 200,
+    "server_stopped_after_test": true
+  },
+  "markdown_local_render_reviewed": true,
+  "mermaid_online_github_render_tested": false
+}

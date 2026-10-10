@@ -1,0 +1,52 @@
+{
+  "data_type": "基于模拟数据的业务分析项目",
+  "scope": "临时有效且成本已知订单；相同订单的有效批准退款按确认月；全部已记录广告",
+  "monthly": [
+    {
+      "month": "2026-08",
+      "sales": 167384.39,
+      "goods_cost": 67851.0,
+      "gross_profit": 99533.39,
+      "shipping_cost": 17100.6,
+      "platform_cost": 16306.15,
+      "before_refunds_ads": 66126.64,
+      "units": 5946,
+      "completed_orders": 5125,
+      "refund_cost": 2528.02,
+      "recorded_ad_cost": 12616.83,
+      "contribution": 50981.79,
+      "gross_margin_pct": 59.46396196
+    },
+    {
+      "month": "2026-09",
+      "sales": 135697.67,
+      "goods_cost": 57774.0,
+      "gross_profit": 77923.67,
+      "shipping_cost": 14674.0,
+      "platform_cost": 12927.04,
+      "before_refunds_ads": 50322.63,
+      "units": 5113,
+      "completed_orders": 4426,
+      "refund_cost": 4508.31,
+      "recorded_ad_cost": 15364.66,
+      "contribution": 30449.66,
+      "gross_margin_pct": 57.42447162
+    }
+  ],
+  "decline": 20532.13,
+  "decline_pct": 40.27,
+  "stockout_scenario": 5075.89,
+  "extra_discount_scenario": 5209.29,
+  "extra_cpc_scenario": 4088.98,
+  "raw_hashes": {
+    "ads.csv": "37305e4fb9c7ecbd8b52d8dc5541e56aec5cea49c26da25f0ad126729d6100c3",
+    "customers.csv": "f70928838eef6c8a91d46817ea0e6130d0caa9794fb16a0ddd38d8062899cdc1",
+    "inventory.csv": "c1cc6c01fd55a727bf0ad444fdf6f5a5c65552c9e1269d94e1c8f14256003916",
+    "orders.csv": "38dfc57597bd8d7d9a95be4c0e976ee26eb8fba1c96655bd002ad4a44625109c",
+    "products.csv": "c2d6d8469827f734358df988e9204db1ad92ede96de438d34e5e54c7299b22a1",
+    "refunds.csv": "b842b5b1f317a7bc102d30b4148164cdfd07e0d2a66a3c74f660fd6fe1352a30"
+  },
+  "quality_issue_count": 202,
+  "missing_ad_spend": 9,
+  "missing_expected_ad_rows": 4
+}

@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-10",
+  "raw_independent_sales": {
+    "2026-08": 167440.02,
+    "2026-09": 135765.53
+  },
+  "sales_change_pct": -18.91691723400415,
+  "profit": {
+    "2026-08": 50981.79,
+    "2026-09": 30449.66
+  },
+  "profit_decline": 20532.13,
+  "profit_decline_pct": 40.273458425057264,
+  "platform_contribution_changes": {
+    "Amazon": -5213.81,
+    "Shopee": -1771.47,
+    "TikTok Shop": -13546.85
+  },
+  "raw_hashes": {
+    "orders": "38dfc57597bd8d7d9a95be4c0e976ee26eb8fba1c96655bd002ad4a44625109c",
+    "products": "c2d6d8469827f734358df988e9204db1ad92ede96de438d34e5e54c7299b22a1",
+    "inventory": "c1cc6c01fd55a727bf0ad444fdf6f5a5c65552c9e1269d94e1c8f14256003916",
+    "refunds": "b842b5b1f317a7bc102d30b4148164cdfd07e0d2a66a3c74f660fd6fe1352a30",
+    "ads": "37305e4fb9c7ecbd8b52d8dc5541e56aec5cea49c26da25f0ad126729d6100c3",
+    "customers": "f70928838eef6c8a91d46817ea0e6130d0caa9794fb16a0ddd38d8062899cdc1"
+  },
+  "public_candidate_files": 93,
+  "publication_scan_findings": [],
+  "source_csv_untouched": true
+}
