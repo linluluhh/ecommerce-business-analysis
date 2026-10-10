@@ -17,8 +17,8 @@
 |Git历史检查|通过本地可达历史检查|项目及父目录原无仓库；本地提交后已扫描全部可达历史blob，无安全发现。检查结果见github_release_evidence.json；远程推送仍未执行。|
 |仓库大小|通过|公开候选约11.8 MiB，最大HTML约4.64 MiB，均低于25 MiB检查阈值；大小与名单见候选证据。|
 |Markdown展示|通过本地显示检查|以Markdown表格渲染并用浏览器截图检查中英文、表格和图片。Mermaid采用GitHub支持的语法，但未在GitHub线上实际渲染，不标为线上验证通过。|
-|项目许可|待用户确认|根目录LICENSE未创建；不默认自由商用。Plotly原包MIT全文及JS版权头保留，系统字体不分发。|
-|创建公开仓库/推送|待用户确认|未执行，无远程配置或公开部署。GitHub已连接，只完成本地提交准备。|
+|项目许可|已确认MIT|用户已授权推荐方案，根目录LICENSE已创建；第三方版权保留，系统字体不分发。|
+|创建公开仓库/推送|用户已授权，执行中|实际完成状态以GitHub仓库及发布记录为准；Dashboard不公开部署。|
 
 ## 公开候选与排除范围
 
@@ -44,7 +44,7 @@
 
 Topics：python、sql、pandas、data-analysis、business-analytics、ecommerce、data-quality、portfolio。
 
-公开前需确认：是否创建公开仓库并推送该本地版本；项目自身采用哪种许可（或明确保持无LICENSE）。Dashboard部署是另一项权限，本次不部署。
+用户已确认按推荐方案采用MIT并创建公开仓库、推送。Dashboard部署是另一项权限，本次不部署。
 
 ## 可检查的证据
 

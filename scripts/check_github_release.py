@@ -106,7 +106,10 @@ def main():
     self_outputs={'reports/github_candidate_manifest.json','reports/github_release_evidence.json'}
     payload=[x for x in candidates if x['file'] not in self_outputs]
     inventory=[x if x['file'] not in self_outputs else {'file':x['file'],'note':'audit output: self hash and size omitted'} for x in candidates]
-    results={'candidate_file_count':len(candidates),'candidate_total_bytes':sum(x['bytes'] for x in payload),'size_scope':'excludes the two self-referential audit JSON files','largest_files':sorted(payload,key=lambda x:x['bytes'],reverse=True)[:5],'candidate_findings':findings,'history_findings':history,'readme_links':links,'markdown_fences_balanced':code_fences,'intro_characters':len(intro),'notebooks_executed':True,'full_reproduction_steps':proof['steps'],'git_remotes':git('remote').stdout.decode('utf-8').splitlines(),'repository_license':'not_selected','dashboard_public_deployment':False,'github_push_performed':False}
+    metadata=json.loads((ROOT/'docs/github_repository_metadata.json').read_text(encoding='utf-8'))
+    publication=ROOT/'reports/github_publication.json'
+    publish_state=json.loads(publication.read_text(encoding='utf-8')) if publication.exists() else {}
+    results={'candidate_file_count':len(candidates),'candidate_total_bytes':sum(x['bytes'] for x in payload),'size_scope':'excludes the two self-referential audit JSON files','largest_files':sorted(payload,key=lambda x:x['bytes'],reverse=True)[:5],'candidate_findings':findings,'history_findings':history,'readme_links':links,'markdown_fences_balanced':code_fences,'intro_characters':len(intro),'notebooks_executed':True,'full_reproduction_steps':proof['steps'],'git_remotes':git('remote').stdout.decode('utf-8').splitlines(),'repository_license':metadata['license'],'dashboard_public_deployment':False,'github_push_performed':bool(publish_state.get('push_verified',False))}
     (ROOT/'reports/github_candidate_manifest.json').write_text(json.dumps(inventory,ensure_ascii=False,indent=2),encoding='utf-8')
     (ROOT/'reports/github_release_evidence.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')
     passed=not findings and not history and all(x['valid_staged_target'] for x in links) and code_fences and all(x['exit_code']==0 for x in proof['steps'])

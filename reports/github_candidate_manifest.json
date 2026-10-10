@@ -10,9 +10,14 @@
     "blob": "0b3d7ee967d153019580f4e1c8e12ceda1272581"
   },
   {
+    "file": "LICENSE",
+    "bytes": 1066,
+    "blob": "a01fcae18f60ff610155cd94e7b4fb2fef41b641"
+  },
+  {
     "file": "README.md",
-    "bytes": 12414,
-    "blob": "59aeaf438d26fcf676e0f685257a4bab9b26fe66"
+    "bytes": 12472,
+    "blob": "103f623abe4d43596ea06d719fedc11bd0faf04e"
   },
   {
     "file": "assets/images/ads_refund_metrics.png",
@@ -171,8 +176,8 @@
   },
   {
     "file": "docs/github_repository_metadata.json",
-    "bytes": 451,
-    "blob": "0e82dfbaf11ba1008dd0809cc6efb9f6759a0150"
+    "bytes": 423,
+    "blob": "c6fa3d0276dd25ec0d74486c8a91cf1a7c630023"
   },
   {
     "file": "docs/methodology.md",
@@ -186,8 +191,8 @@
   },
   {
     "file": "docs/readme_template.md",
-    "bytes": 12414,
-    "blob": "59aeaf438d26fcf676e0f685257a4bab9b26fe66"
+    "bytes": 12472,
+    "blob": "103f623abe4d43596ea06d719fedc11bd0faf04e"
   },
   {
     "file": "docs/resume_project_description.md",
@@ -201,8 +206,8 @@
   },
   {
     "file": "docs/third_party_notices.md",
-    "bytes": 2129,
-    "blob": "93ca3475264ad4a56cb9a0ad4d73175c016206a9"
+    "bytes": 2247,
+    "blob": "abf4827ee783a020dc15f7070f73daa8246b5f0c"
   },
   {
     "file": "docs/v1_delivery.md",
@@ -260,8 +265,8 @@
   },
   {
     "file": "reports/github_release_checklist.md",
-    "bytes": 5467,
-    "blob": "b501ad814652076616268d0f702fd55a66886a72"
+    "bytes": 5389,
+    "blob": "fb044845f363d4b16e628857764b5f24cfc39a1f"
   },
   {
     "file": "reports/github_release_evidence.json",
@@ -459,8 +464,8 @@
   },
   {
     "file": "scripts/check_github_release.py",
-    "bytes": 7835,
-    "blob": "69635160cb268425915c0cf0554ee34d25771033"
+    "bytes": 8137,
+    "blob": "4f076b351175e35a20da552826e274d1295d55a2"
   },
   {
     "file": "scripts/prepare_github_portfolio.py",

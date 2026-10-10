@@ -1,6 +1,6 @@
 {
-  "candidate_file_count": 103,
-  "candidate_total_bytes": 12374698,
+  "candidate_file_count": 104,
+  "candidate_total_bytes": 12376194,
   "size_scope": "excludes the two self-referential audit JSON files",
   "largest_files": [
     {
@@ -136,6 +136,11 @@
       "target": "docs/third_party_notices.md",
       "image": false,
       "valid_staged_target": true
+    },
+    {
+      "target": "LICENSE",
+      "image": false,
+      "valid_staged_target": true
     }
   ],
   "markdown_fences_balanced": true,
@@ -184,7 +189,7 @@
     }
   ],
   "git_remotes": [],
-  "repository_license": "not_selected",
+  "repository_license": "MIT",
   "dashboard_public_deployment": false,
   "github_push_performed": false
 }

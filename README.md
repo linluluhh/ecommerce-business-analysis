@@ -184,7 +184,7 @@ assets/images/     真实数据展示图与已验证截图
 
 [中文/英文简历描述与面试介绍](docs/resume_project_description.md) · [发布前检查清单](reports/github_release_checklist.md) · [第三方与许可说明](docs/third_party_notices.md)
 
-项目自身LICENSE尚未选择，不默认授予自由商用许可。离线Dashboard保留Plotly版权说明并附原包MIT文本；不分发系统字体。未公开部署或上传远程，发布需项目所有者确认。
+本项目原创代码、文档、分析图及合成模拟数据采用[MIT许可证](LICENSE)。第三方内容仍遵循其自身许可：离线Dashboard保留Plotly版权说明并附原包MIT文本，不分发系统字体。Dashboard仅供离线或本机访问，不公开部署。
 
 ## English Summary
 
