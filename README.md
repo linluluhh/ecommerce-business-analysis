@@ -1,195 +1,120 @@
-# 跨境电商经营数据分析与利润异常诊断
+# 跨境电商智能经营监控系统 · V2.1
 
-**Cross-border E-commerce Business Analytics & Profit Diagnostics**
+**从六表导入、质量治理到经营指标、可追溯预警与离线日报的本地应用。**
 
-> 本项目使用合成模拟数据，仅用于技能展示，不代表真实企业经营成果。由学习者使用Codex辅助开发，并进行业务口径学习、质量验证与结果审查。
+> 本仓库附带的全部经营数据、截图和演示结果均为 **Synthetic 合成模拟数据**，不代表真实企业经营收益。项目使用 Codex 辅助开发，以确定性指标、自动化测试及真实浏览器验证约束结果。应用可上传数据，但作品集不包含真实企业或客户数据。
 
-## 项目简介
+面向跨境电商运营、数据运营和分析人员，解决重复上传、异常记录混入利润、退款日期口径混用、预警缺少依据和日报难以复核的问题。适合小批量、本机、单企业使用，不是在线 SaaS 或生产级财务系统。
 
-模拟广州一家约30人的跨境电商公司，通过TikTok Shop、Amazon和Shopee销售商品。围绕2026年9月经营下滑，使用六张关联表完成质检、清洗、SQL/Pandas分析与利润对账，交付经营报告、Dashboard和自动周报，为库存、促销、广告及售后排查提出建议。
+[快速启动](#安装与启动) · [演示流程](docs/portfolio/DEMO.md) · [系统架构](docs/portfolio/ARCHITECTURE.md) · [截图与发布说明](docs/portfolio/RELEASE.md) · [保留的 V1 分析案例](README_V1.md)
 
-**目标岗位：** 数据运营专员、数据分析助理、AI数据运营、业务运营分析助理。
+## 实际界面
 
-## 核心经营发现
+![经营日报：经营日、退款观察日和严格前日比较](assets/v21/daily-report.png)
 
-|指标或线索|V1结果|口径与边界|
-|---|---|---|
-|有效销售额|167,440.02 → 135,765.53 USD，下降 **18.92%**|去重、已完成、暂时排除价格/数量待核实订单|
-|临时经营贡献利润|50,981.79 → 30,449.66 USD，减少 **20,532.13 USD（40.27%）**|成本已知订单、同范围确认退款、全部已记录广告费；不是净利润|
-|TikTok Shop|贡献利润变化 **−13,546.85 USD**|最大平台下降来源；平台与SKU维度不能重复相加|
-|库存|SKU001连续 **4天零库存**|同期完成订单为0，补货后恢复；实际损失需进一步核实|
-|促销与广告|TK优惠率 **3.91% → 11.99%**；ROAS **4.87 → 2.30**|优惠承担方未知；ROAS使用花费已知广告记录|
-|退款|SKU004退款订单率 **3.31% → 17.40%**|下单后12天内确认的有效批准退款，按下单月队列比较|
+真实 Edge 截图，来自 V2.1 C2 独立模拟库验收。界面“V2”为保留的产品标题；当前代码包含 V2.1 质量报告与经营日报。更多截图及其版本来源见[展示材料](docs/portfolio/RELEASE.md#截图来源)。
 
-原始数据直接汇总的销售降幅约30.36%，经质检后变为18.92%，说明**先核实数据质量，再解释经营变化**是项目的重要环节。以上为描述与排查证据，不宣称已证明独立因果关系。
+## 已实现功能
 
-## 技术栈与工作方法
+|模块|实际能力与边界|
+|---|---|
+|六表导入|CSV、单表 XLSX、多工作表 XLSX；订单、商品、客户、库存、退款、广告；字段模板、原文件下载、批次与日志|
+|质量治理|标准化、重复识别、业务键冲突与异常隔离；分类/批次筛选、业务影响摘要、原始证据、CSV 和离线 HTML 报告|
+|人工审核|待核实、确认、驳回及说明留痕；确认不等于修复，硬错误不能靠驳回放行|
+|凭证修订|申请、批准/驳回、版本链；保留原值，批准后重新质检；凭证为引用，不是自动核验|
+|经营分析|11 项 KPI 卡片、日期/平台/SKU/国家/订单状态筛选、趋势与经营拆解、来源明细和 JSON 下载|
+|规则预警|13 条规则，手动触发检测；阈值、周期、样本量及版本管理；证据、处理状态与操作记录|
+|经营日报|已结束经营日 D、退款观察日 H、六项 KPI、严格 D−1 比较、样本/质量限制、历史证据、确定性核查建议|
+|离线报告|质量 HTML 与经营日报 HTML；下载不触发检测、审核或审批，无需联网打开|
+|数据持久化|SQLite 与上传原件；模拟/业务空间隔离，另有独立第二阶段模拟数据库|
 
-- **Excel/WPS**：字段理解、订单销售口径、透视表及初步异常检查。
-- **Python、Pandas、NumPy**：六表质检、标准化、异常隔离、多表关联和经营指标。
-- **SQL、SQLite**：CTE、分组聚合、关联与退款队列；独立复核Pandas结果。
-- **Jupyter Notebook**：整理分析过程并从干净内核执行。
-- **Matplotlib、Plotly**：真实数据静态图与离线交互Dashboard。
-- **AI辅助**：Codex辅助代码/文档；周报先确定性计算，再生成AI证据包并验证指标引用，未自动调用付费API。
+规则覆盖库存不足/覆盖/趋势，销售下降、毛利率下降、贡献下降、未知成本上升，广告 ROAS/费用/效率，以及退款率、SKU 集中和平台退款上升。[默认阈值](v2/docs/ALERT_RULES.md)仅为演示配置，不是行业标准。
 
-## 业务分析流程
+## 技术栈与数据流
+
+Python 3.11、Streamlit、Pandas、NumPy、Decimal、openpyxl、SQLite；pytest 验证服务和页面，Edge/Playwright 验证真实浏览器。应用运行不需要 Node 或 AI API。
 
 ```mermaid
 flowchart LR
-    A[原始六表] --> B[粒度 主键 质量检查]
-    B --> C[标准化与异常隔离]
-    C --> D[SQL与Pandas分析]
-    D --> E[指标与样本对账]
-    E --> F[利润变化拆解]
-    F --> G[可视化与经营建议]
+    A[CSV / XLSX 六表] --> B[Store 导入与去重]
+    B --> C[质量检测与隔离]
+    C --> D[MetricCenter 有效事实与指标]
+    E[人工审核 / 已批准修订] --> C
+    D --> F[经营分析]
+    D --> G[手动规则检测]
+    G --> H[SQLite 历史预警证据]
+    D --> I[经营日报数据组装]
+    H --> I
+    C --> J[质量摘要与 HTML]
+    I --> K[日报页面 / 同结果 HTML]
 ```
 
-## 数据集
+模块及函数依赖见[架构说明](docs/portfolio/ARCHITECTURE.md)。V1 Notebook、SQL、静态 Dashboard 独立保留，不是当前 Streamlit 的启动入口。
 
-六张原始CSV合计约1.1MB，完整包含在项目中，不使用仅能演示的抽样数据。金额统一USD等值；订单、库存和广告覆盖2026-08-01至09-30，退款观察至10-12，均为模拟日期。
+## 日报六项核心指标
 
-|表|原始行数|粒度与关键字段|业务关系|
-|---|---:|---|---|
-|orders.csv|9,970|单SKU订单；order_id、order_date、quantity、unit_price、discount、order_status|关联客户、商品及售后；取消订单不确认收入|
-|products.csv|12|每SKU；unit_cost、category、supplier|提供两个月固定的单位到仓采购成本|
-|inventory.csv|732|日期×SKU；期初、入库、出库、期末|共享可售库存，与完成订单出库核对|
-|refunds.csv|312|退款申请；refund_id、order_id、refund_date、refund_amount、refund_status|经订单归属平台/SKU，确认日用于费用期间|
-|ads.csv|2,192|日期×平台×campaign×SKU；spend、clicks、attributed_revenue|广告按平台/SKU直接归属，归因收入不再加到销售额|
-|customers.csv|4,807|每客户；customer_id、country、register_date|客户主表，缺少客户编号不直接删除订单收入|
-
-字段详情见[数据字典](docs/data_dictionary.md)，样本和计算口径见[方法说明](docs/methodology.md)。
-
-## 数据质量管理
-
-确认订单为单SKU粒度后，复核18条全字段重复副本并去重，订单剩余9,952行且业务键唯一；客户去除7条整行重复。标准化SKU、国家、平台及日期，保留原字段供追溯。客户缺失12条保留；价格/数量异常、3笔未知SKU订单和2笔超额退款标记隔离，不猜测修正。
-
-广告费用缺失9条，按观测固定活动模式发现4个疑似缺日报格点；库存检查覆盖日平衡、跨日承接及订单对账。**缺失值、未知成本和疑似漏报均不自动填0。**
-
-![六表质检摘要](assets/images/data_quality_overview.png)
-
-可核查[质检报告](reports/data_quality_report.md)、[六表质检台账](docs/data_quality_log.xlsx)、[逐记录问题证据](data/processed/quality_issues.csv)。台账区分“技术处理已验证”与“业务原值待确认”。
-
-## 经营分析结果
-
-### 1. 收入与贡献利润
-
-![月度销售和贡献利润](assets/images/monthly_sales_profit.png)
-
-销售与贡献利润都下降；利润降幅更大。两项指标样本不同：销售统计保留未知成本SKU，利润样本额外排除这些订单，因此不能混用两张表的变化额。
-
-### 2. 平台与商品定位
-
-![平台贡献利润变化](assets/images/platform_contribution_change.png)
-
-TK贡献利润减少13,546.85 USD，是优先排查平台；Amazon和Shopee分别减少5,213.81、1,771.47 USD。
-
-![SKU贡献变化](assets/images/sku_contribution_change.png)
-
-SKU001贡献减少8,162.48 USD；SKU004减少3,032.31 USD。平台与SKU是同一利润变化的两种切片，不相加。
-
-### 3. 可对账的利润变化
-
-![利润桥梁](assets/images/profit_bridge.png)
-
-销售减少被部分商品、物流和佣金成本下降抵消，退款及广告费用增加进一步压低贡献利润。六项会计变化精确合计至20,532.13 USD；缺货、折扣与CPC情景不再叠加。
-
-### 4. 广告与售后验证
-
-![广告及退款指标](assets/images/ads_refund_metrics.png)
-
-TK点击量减少而CPC上升，ROAS下降；SKU004统一观察窗口内退款比例明显增加。优先核查广告活动组合、包装/运输凭证和商品描述，尚不能认定具体责任方。
-
-完整推导及行动建议见[9月经营报告](reports/september_business_report.md)；[正式验收](reports/v1_acceptance_report.md)说明证据、限制与环境测试。
-
-## Dashboard
-
-![本地Dashboard真实截图](assets/images/dashboard_preview.png)
-
-[dashboard/index.html](dashboard/index.html)是已在本地浏览器验证的**离线HTML**，支持悬停、图例筛选和缩放。没有公开部署，也没有虚构在线访问链接。GitHub文件页不执行该HTML，请下载项目后打开文件。
-
-## 运行与复现
-
-已在 **Windows x64、Python 3.11.5** 全新虚拟环境，从原始CSV及空派生目录完整重跑；两个Notebook执行、SQL/Pandas与关键金额对账通过，六张清洗CSV及全部汇总CSV逐字节一致。其他操作系统未实测。
-
-在项目根目录运行：
-
-```bash
-python -m venv .venv
-# Windows PowerShell: ./.venv/Scripts/Activate.ps1
-# macOS/Linux: source .venv/bin/activate
-python -m pip install -r requirements-acceptance-lock.txt
-python -m pip check
-
-# 读取完整raw，质检清洗，执行SQL并生成报告、SQLite与Dashboard
-python scripts/run_project_v1.py
-
-# 整理Notebook、真实数据图和README（不改变经营计算）
-python scripts/build_portfolio.py
-python scripts/run_notebooks.py
-
-# 生成确定性经营周报并验证结果
-python scripts/weekly_report.py --start 2026-09-21 --end 2026-09-27
-python scripts/validate_project_v1.py
-```
-
-也可用 `requirements.txt` 安装兼容范围，锁定文件记录已测试版本。Windows无法激活时直接用 `./.venv/Scripts/python.exe` 替代命令中的`python`，无需修改系统策略。安装依赖需要网络；核心分析不需要Node、Codex插件或私有运行库。
-
-**数据准备：** 六张完整模拟raw及SHA-256清单已在仓库，无需生成或下载额外业务数据。流水线不调用生成脚本、不修改raw，重跑会覆盖派生结果。
-
-**SQL分析：** `run_project_v1.py`实际执行[四个SQL查询](sql/)并输出`reports/tables/*_sql.csv`，与Pandas独立对账；数据库在`data/processed/business_analysis.sqlite`。退款、广告先聚合再关联，避免多对多放大。
-
-**Notebook：** [清洗](notebooks/01_data_cleaning_v1.ipynb)与[分析](notebooks/02_business_analysis_v1.ipynb)可在VS Code或Jupyter打开；执行器使用当前解释器，不借用旧内核。历史学习Notebook仅保留在本地，不作为正式结果来源。
-
-**报告与Dashboard：** 经营/质检Markdown由流水线生成；离线Dashboard直接打开`dashboard/index.html`。如浏览器阻止文件读取，可在项目根目录运行：
-
-```bash
-python -m http.server 8000 --bind 127.0.0.1
-```
-
-然后访问[仅本机Dashboard](http://127.0.0.1:8000/dashboard/index.html)。该地址不是线上站点，不公开部署。README截图是已验证快照，新的截图仍需真实浏览器渲染。
-
-## 业务建议
-
-|方向|数据支持的行动|需要进一步确认|
+|指标|口径与解释|D−1 比较|
 |---|---|---|
-|库存|监控核心SKU覆盖天数、零库存与补货到货偏差，明确补货责任人|真实供应交期和未下单需求，不能直接用情景损失定库存|
-|促销|按SKU贡献测算折扣底线，核实优惠承担方并设计对照试验|平台补贴与需求反应，不把额外优惠当可追回收益|
-|广告|按活动/SKU复核CPC、ROAS及订单贡献，试验预算调整|活动组合、素材和受众变化，不能直接归咎竞价|
-|售后|优先抽查SKU004损坏证据、包装批次及商品描述|售后原因标签不能证明物流或供应商责任|
+|折后销售额|有效 completed 订单的数量×单价−整单优惠；未知成本收入保留|增长率；前日为零时不适用|
+|有效完成订单数|排除整行隔离后的不同完成订单，单 SKU 粒度|笔数差|
+|商品毛利|成本已知销售额−对应商品成本，不扣物流、佣金等|USD 金额差|
+|暂估贡献利润|毛利−物流−佣金−确认退款−已记录广告；不是净利润|USD 金额差，披露部分样本|
+|广告归因 ROAS|同样本归因收入÷广告费，归因收入不再计入销售|倍数差|
+|12 天退款订单率|下单后 0–12 天内有有效批准退款的订单÷观察满 12 天的成本已知有效订单|百分点差|
 
-以上是建议，未实施，不声称提高利润或节省真实费用。
+金额均为 USD。收入按订单日、退款费用按确认日、退款率按下单队列；D 与 D−1 使用同一 H，H 仅约束退款队列，不是全库历史快照。日报覆盖当前空间全部平台、SKU、国家，不继承经营分析的筛选。完整口径见[指标定义](v2/docs/METRIC_DEFINITIONS.md)。
 
-## 项目限制与真实性
+## 如何处理不确定性
 
-- 全部业务数据为模拟数据；无真实公司、客户或任职成果。
-- 9条广告花费缺失、4条疑似漏报未补估；未知SKU成本和异常订单原值待确认。
-- 经营贡献利润不包含工资、租金、税费等，**不等于净利润**。
-- 情景估算不等于实际损失，也不等于措施实施后的收益；经营线索并未全部获得因果证明。
-- 月总量包含31天与30天的差异；两个月不足以控制季节性和活动影响。
-- AI用于辅助开发与文档，数值由脚本核验；周报示例没有自动联网调用模型。
+- 未知成本不填零；无数据、无匹配、数据不足、不适用和真实零值分别展示。缺日不补零、不换比较日。
+- 订单可用率不是综合质量评分；没有异常记录不证明账本收齐。历史异常开关不改变当前有效异常摘要。
+- 日报读取观测期结束日为 D 的历史触发证据和保存的规则版本；当前处理状态不冒充 D 当时状态。
+- 当前指标按有效版本重算，历史预警保留当时证据，两者可能不同；无留存证据不等于无异常。
+- 建议是确定性核查方向，不推断根因、财务损失或未来收益；退款未成熟时不判定经营恶化。
 
-## 项目结构与求职材料
+## 安装与启动
 
-```text
-data/raw/          完整原始模拟数据与哈希清单
-data/processed/    清洗表、异常证据及分析事实
-notebooks/         两个正式V1 Notebook
-sql/               查询与独立指标验证
-scripts/           V1流水线、构建、周报与检查
-reports/           经营/质量/验收报告及汇总CSV
-dashboard/         离线交互页面
-docs/              字段、方法、质检台账与简历材料
-assets/images/     真实数据展示图与已验证截图
+在仓库根目录使用 Windows PowerShell。已验收平台为 Windows / Python 3.11 / Edge：
+
+```powershell
+py -3.11 -m venv v2/.venv
+v2/.venv/Scripts/python.exe -m pip install -r v2/requirements-lock.txt
+v2/.venv/Scripts/python.exe -m pip check
+$env:V2_DATA_DIR = Join-Path (Get-Location) 'v2/runtime/portfolio-demo'
+v2/.venv/Scripts/python.exe -m streamlit run v2/app.py --server.address 127.0.0.1 --server.port 8502 --server.headless true --server.maxUploadSize 20 --browser.gatherUsageStats false
 ```
 
-[中文/英文简历描述与面试介绍](docs/resume_project_description.md) · [发布前检查清单](reports/github_release_checklist.md) · [第三方与许可说明](docs/third_party_notices.md)
+打开 <http://127.0.0.1:8502>，按 Ctrl+C 停止。首次安装需网络，核心应用本地运行，不需要密钥。锁定文件记录验收依赖；`v2/requirements.txt` 为兼容范围。其他操作系统未进行同等浏览器验收。
 
-本项目原创代码、文档、分析图及合成模拟数据采用[MIT许可证](LICENSE)。第三方内容仍遵循其自身许可：离线Dashboard保留Plotly版权说明并附原包MIT文本，不分发系统字体。Dashboard仅供离线或本机访问，不公开部署。
+选择“第二阶段独立模拟演示”→“数据运营工作台”→“批次与日志”→“导入14天第二阶段模拟数据”。六表样例已附带，无需运行生成脚本。不要在此空间混入两天正常/错误场景；重演时使用新的 `V2_DATA_DIR`，不要清空已有库。[完整演示](docs/portfolio/DEMO.md)包含修订前后的对账点。
 
-## English Summary
+未设置变量时使用 `v2/runtime/`。停止应用后备份整个数据目录，包含 SQLite、WAL 和原上传文件；不要只复制主数据库。`business` 与 `demo` 逻辑隔离；第二阶段模拟使用数据目录下 `phase2_demo/` 独立库。
 
-This synthetic portfolio project investigates month-over-month changes in a small cross-border e-commerce business across TikTok Shop, Amazon and Shopee. Six related tables support data-quality checks, transparent exception handling, SQL/Pandas reconciliation and profit diagnostics.
+## 验证与证据
 
-Effective sales declined **18.92%**. Provisional operating contribution fell **USD 20,532.13 (40.27%)**, with TikTok Shop showing the largest platform decline. Stock availability, discounts, advertising efficiency and refund cohorts provide investigation leads, not proven independent causal effects.
+C2 功能提交 `3739832fa4d2adf6becebfe213616233e8b0ad5f` 的 2026-10-21 验收：专项 **26 passed**，一次全量 **176 passed**。Edge 已验证日期、空间隔离、1366px/480px、历史证据、离线下载、数字对账与业务表只读不变性。
 
-Deliverables include executed notebooks, SQL queries, auditable reports, an offline dashboard and a reproducible weekly reporting workflow. Results are based on synthetic data, exclude unresolved records under disclosed rules, and do not represent net profit or realized business gains. Development was assisted by Codex; AI involvement is disclosed.
+公开副本：[pytest 输出](docs/portfolio/pytest-c2.txt)、[浏览器结果](docs/portfolio/browser-c2.json)、[离线日报样例](assets/v21/sample-daily-report.html)。GitHub 文件页不运行 HTML，下载后用浏览器打开。
+
+```powershell
+v2/.venv/Scripts/python.exe -m pytest v2/tests -q
+```
+
+本次作品集整理未重复全量测试，上述结果属于对应功能版本的实测。测试目录和浏览器复现条件见[运行与验证说明](v2/README.md)。
+
+## 限制与后续方向
+
+本机单企业、小批量全量重评、静态成本、单币种、单 SKU 订单。无身份认证或生产级权限，操作员名称为自报审计标识。没有平台自动同步、定时生成、通知或 AI 助手。原文件落盘与 SQLite 不属于同一原子事务；没有完整性日历，不能证明漏报不存在；当前重算不能还原完整历史时点。
+
+后续候选方向包括账本完整性、成本生效日、增量计算；平台接入、通知和权限需另行设计验证，均未实现或承诺上线。本次发布以已公开 V1 main 加 V2.1 文件快照组织，不携带本地 V2 中间开发历史，详见[发布候选说明](docs/portfolio/RELEASE_CANDIDATE.md)。
+
+## 仓库导航与许可
+
+|目录|用途|
+|---|---|
+|`v2/`|当前应用、指标、质量、预警、修订、日报与测试|
+|`v2/demo_data/`|可直接导入的 Synthetic 示例文件|
+|`docs/portfolio/`、`assets/v21/`|架构、演示、公开证据副本与真实截图|
+|`data/`、`scripts/`、`notebooks/`、`sql/`、`reports/`、`dashboard/`|保留的 V1 分析作品，见 [V1 README](README_V1.md)|
+
+原创代码、文档和模拟数据沿用 [MIT 许可证](LICENSE)，第三方资源遵循[各自许可](docs/third_party_notices.md)。没有公开部署地址，不把本机链接当作在线演示。

@@ -1,0 +1,3 @@
+﻿order_id,order_date,customer_id,sku,platform,country,quantity,unit_price,discount,shipping_fee,order_status,platform_fee
+DEMO001,2026-09-01,C001,SKU001,Amazon,US,2,20,5,3,completed,2
+DEMO002,2026-09-02,C001,SKU001,Amazon,US,1,20,0,2,cancelled,1

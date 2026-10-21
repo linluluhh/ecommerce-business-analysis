@@ -1,0 +1,42 @@
+[
+  {
+    "file": "assets/v21/dashboard-v205.png",
+    "source": "v2/runtime/v205-rebuild/browser/01-summary.png",
+    "sha256": "561e3e617b3980d6ba1c3214f9c844eebf98952d46d5c0e1fd2a1242cffaa7d9"
+  },
+  {
+    "file": "assets/v21/quality-v21b.png",
+    "source": "v2/runtime/v21-quality-b/browser/03a-guidance.png",
+    "sha256": "2d335a716930a58bacbda3a01b53354ca6f999904b40453cdd607fe7431d3325"
+  },
+  {
+    "file": "assets/v21/alerts-phase2.png",
+    "source": "v2/evidence/phase2/03-alert-workbench.png",
+    "sha256": "5770eedf1526597955ffa9f1ac936c5d70c199e91526f9decd1ffe91d752e110"
+  },
+  {
+    "file": "assets/v21/daily-report.png",
+    "source": "v2/runtime/v21-daily-c2/browser/01-default.png",
+    "sha256": "da5c2414f7aae318f065e839832ea4d5fe60bb79b2a26bf40de4a4053bfdbf70"
+  },
+  {
+    "file": "assets/v21/offline-report.png",
+    "source": "v2/runtime/v21-daily-c2/browser/11-offline-report.png",
+    "sha256": "eb3c800e1c0c8547d934b9d53fdf1ba02ec8883ea4fec301d0cf0e40f3a15d72"
+  },
+  {
+    "file": "assets/v21/daily-history.png",
+    "source": "v2/runtime/v21-daily-c2/browser/09-history.png",
+    "sha256": "ea1de47490624b3d2e65d97da4da10bc4b9ada174dde34c45341ca8f4edb836f"
+  },
+  {
+    "file": "assets/v21/daily-mobile.png",
+    "source": "v2/runtime/v21-daily-c2/browser/07-mobile.png",
+    "sha256": "a55e1d597751e2892787ba841a25e60045c9ac1b32c6ef0ffb231fc17d234ca0"
+  },
+  {
+    "file": "assets/v21/sample-daily-report.html",
+    "source": "v2/runtime/v21-daily-c2/browser/sample-daily-report.html",
+    "sha256": "297a4333231044ee70967c524b745ff29dcf5cd674fe364fb6a79861b3b72ce2"
+  }
+]

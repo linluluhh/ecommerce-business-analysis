@@ -1,0 +1,2 @@
+﻿refund_id,order_id,refund_date,refund_amount,refund_reason,refund_status,restocked_qty
+R001,DEMO001,2026-10-01,5,运输损坏,approved,0

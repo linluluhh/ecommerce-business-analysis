@@ -1,0 +1,13 @@
+.venv/
+runtime/
+__pycache__/
+.pytest_cache/
+browser-profile/
+# Release snapshots keep curated public evidence under docs/portfolio.
+# Raw browser state and JUnit machine reports remain local.
+evidence/**/*.json
+evidence/**/*.xml
+evidence/*.json
+evidence/*.xml
+evidence/**/*.png
+evidence/*.png
