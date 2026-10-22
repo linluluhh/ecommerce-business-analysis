@@ -90,6 +90,14 @@ v2/.venv/Scripts/python.exe -m streamlit run v2/app.py --server.address 127.0.0.
 
 未设置变量时使用 `v2/runtime/`。停止应用后备份整个数据目录，包含 SQLite、WAL 和原上传文件；不要只复制主数据库。`business` 与 `demo` 逻辑隔离；第二阶段模拟使用数据目录下 `phase2_demo/` 独立库。
 
+## 在线演示部署候选
+
+已增加独立公开入口 `v2/portfolio_app.py`，面向 Streamlit Community Cloud；**尚未推送或部署，没有在线网址**。每个浏览器会话自动得到独立的 Synthetic 临时库，支持分析、质量、预警、审核修订、日报及 HTML 下载；任意文件上传禁用，不连接业务库。
+
+会话空闲 30 分钟或存活 2 小时后重建，应用重启不保留修改；可用“重置我的演示”恢复样例。其余访客不受当前会话修订影响。本地完整模式仍使用 `v2/app.py`，保留导入和持久化目录。
+
+根 `requirements.txt` 为精简云端运行依赖，`v2/requirements.txt` 引用它；测试使用 `v2/requirements-dev.txt`，V1 兼容依赖移至 `requirements-v1.txt`。部署时选 Python 3.11，入口 `v2/portfolio_app.py`，无需密钥。详见[部署、隔离与验证说明](docs/portfolio/CLOUD_DEPLOY.md)。
+
 ## 验证与证据
 
 C2 功能提交 `3739832fa4d2adf6becebfe213616233e8b0ad5f` 的 2026-10-21 验收：专项 **26 passed**，一次全量 **176 passed**。Edge 已验证日期、空间隔离、1366px/480px、历史证据、离线下载、数字对账与业务表只读不变性。
@@ -104,7 +112,7 @@ v2/.venv/Scripts/python.exe -m pytest v2/tests -q
 
 ## 限制与后续方向
 
-本机单企业、小批量全量重评、静态成本、单币种、单 SKU 订单。无身份认证或生产级权限，操作员名称为自报审计标识。没有平台自动同步、定时生成、通知或 AI 助手。原文件落盘与 SQLite 不属于同一原子事务；没有完整性日历，不能证明漏报不存在；当前重算不能还原完整历史时点。
+本机单企业、小批量全量重评、静态成本、单币种、单 SKU 订单。无身份认证或生产级权限，操作员名称为自报审计标识；公开候选仅以会话临时副本隔离演示操作。没有平台自动同步、定时生成、通知或 AI 助手。原文件落盘与 SQLite 不属于同一原子事务；没有完整性日历，不能证明漏报不存在；当前重算不能还原完整历史时点。
 
 后续候选方向包括账本完整性、成本生效日、增量计算；平台接入、通知和权限需另行设计验证，均未实现或承诺上线。本次发布以已公开 V1 main 加 V2.1 文件快照组织，不携带本地 V2 中间开发历史，详见[发布候选说明](docs/portfolio/RELEASE_CANDIDATE.md)。
 

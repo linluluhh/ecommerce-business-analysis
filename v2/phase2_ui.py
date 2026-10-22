@@ -78,7 +78,7 @@ def table(rows,rename=None):
     st.dataframe(display.rename(columns=rename or {}),width='stretch',hide_index=True)
 
 
-def render(store,workspace,actor,section):
+def render(store,workspace,actor,section,public_demo=False):
     engine=AlertEngine(store)
     if not workspace_has_data(store, workspace):
         render_status(Status.EMPTY_DATA, '未评估：请先导入数据。')
@@ -89,11 +89,11 @@ def render(store,workspace,actor,section):
     if section in ('经营分析','经营总览','经营监控'):
         dashboard(store,workspace,section)
     elif section=='智能预警':
-        alerts(store,workspace,actor,engine)
+        alerts(store,workspace,actor,engine,public_demo=public_demo)
     elif section=='规则配置':
-        rules(workspace,actor,engine)
+        rules(workspace,actor,engine,public_demo=public_demo)
     elif section=='数据修订':
-        revisions(store,workspace,actor)
+        revisions(store,workspace,actor,public_demo=public_demo)
 
 
 def dashboard(store,workspace,section):
@@ -256,7 +256,7 @@ def render_metric_definition(result,start,end,horizon):
     st.download_button('导出筛选后经营指标与血缘 JSON',safe_json(result).encode('utf-8'),file_name='经营指标与来源.json')
 
 
-def alerts(store,workspace,actor,engine):
+def alerts(store,workspace,actor,engine,public_demo=False):
     st.subheader('智能规则预警与处理工作台')
     st.info('按最新有记录且已结束的订单日计算相同长度观测周期，不声称已收齐账本。库存为周期末快照，非实时库存。刷新页面不自动写入检测记录。')
     namespace=str(store.root)+workspace
@@ -294,7 +294,7 @@ def alerts(store,workspace,actor,engine):
         st.json(evidence);st.json(json.loads(item.rule_snapshot))
     with st.form('alert_action'):
         new_status=st.selectbox('经营预警处理结论',['待处理','处理中','已解决','已忽略'])
-        note=st.text_area('经营预警处理说明（必填）')
+        note=st.text_area('经营预警处理说明（必填）',max_chars=2000 if public_demo else None)
         submit=st.form_submit_button('保存预警处理')
     if submit:
         try:
@@ -304,7 +304,7 @@ def alerts(store,workspace,actor,engine):
     table(store.query('SELECT * FROM alert_actions WHERE alert_id=? ORDER BY id DESC',(int(selected),)))
 
 
-def rules(workspace,actor,engine):
+def rules(workspace,actor,engine,public_demo=False):
     st.subheader('本地预警规则配置')
     st.warning('默认值仅为模拟演示配置，不是行业标准。比例/百分点使用小数：20%=0.2；毛利率下降5个百分点=0.05。修改会创建新版本，旧预警保留旧阈值。')
     rows=engine.rules(workspace);lookup={r['id']:r for r in rows}
@@ -314,12 +314,12 @@ def rules(workspace,actor,engine):
     row=lookup[selected]
     st.write('触发口径：'+FORMULAS[row['kind']])
     with st.form('configure_rule'):
-        name=st.text_input('规则名称',row['name']);enabled=st.checkbox('启用规则',bool(row['enabled']))
+        name=st.text_input('规则名称',row['name'],max_chars=100 if public_demo else None);enabled=st.checkbox('启用规则',bool(row['enabled']))
         threshold=st.number_input('规则阈值（比例用小数）',min_value=0.,value=float(row['threshold']),format='%.4f')
         window=st.number_input('观察周期（天）',min_value=1,max_value=90,value=int(row['window_days']))
         severity=st.selectbox('规则严重程度',['高','中','低'],index=['高','中','低'].index(row['severity']))
         sample=st.number_input('最小样本量',min_value=1,value=int(row['min_sample']))
-        note=st.text_area('规则修改说明（必填）')
+        note=st.text_area('规则修改说明（必填）',max_chars=2000 if public_demo else None)
         submit=st.form_submit_button('保存规则版本')
     if submit:
         try:
@@ -328,7 +328,7 @@ def rules(workspace,actor,engine):
         except ValueError as exc:st.error(str(exc))
 
 
-def revisions(store,workspace,actor):
+def revisions(store,workspace,actor,public_demo=False):
     st.subheader('带凭证的数据修订与版本审批')
     st.info('原始值不可覆盖；待审核和已驳回不进入计算。批准后仍执行 V1 质检，不会因批准而放行非法金额。业务键不能修订；身份为本地自报审计标识。')
     with store.connect() as con:
@@ -345,10 +345,10 @@ def revisions(store,workspace,actor):
     flags=store.query('SELECT id,code FROM anomalies WHERE record_id=?',(record_id,))
     link=st.selectbox('关联质量异常（可选）',[None]+flags.id.tolist(),format_func=lambda idx:'不关联' if idx is None else f'异常 #{idx}')
     with st.form('revision_request'):
-        new_value=st.text_input('建议新值（文本，空值用勾选）',value='' if value[field] is None else str(value[field]))
+        new_value=st.text_input('建议新值（文本，空值用勾选）',value='' if value[field] is None else str(value[field]),max_chars=500 if public_demo else None)
         missing=st.checkbox('建议设为缺失值（仍需质检）')
-        reason=st.text_area('修订原因（必填）')
-        evidence=st.text_input('证据引用（凭证编号或本地文件路径，必填）')
+        reason=st.text_area('修订原因（必填）',max_chars=2000 if public_demo else None)
+        evidence=st.text_input('证据引用（凭证编号或本地文件路径，必填）',max_chars=500 if public_demo else None)
         submit=st.form_submit_button('提交修订申请')
     if submit:
         try:
@@ -366,7 +366,7 @@ def revisions(store,workspace,actor):
         if rev.status=='待审核':
             with st.form('revision_approve'):
                 decision=st.selectbox('修订审核结论',['已批准','已驳回'])
-                note=st.text_area('修订审核说明（必填）')
+                note=st.text_area('修订审核说明（必填）',max_chars=2000 if public_demo else None)
                 submit=st.form_submit_button('保存修订审批')
             if submit:
                 try:

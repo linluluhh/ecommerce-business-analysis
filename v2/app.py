@@ -17,7 +17,8 @@ st.set_page_config(page_title='跨境电商 · 智能经营监控 V2',page_icon=
 st.markdown('''<style>.stApp{background:#f6f8fc}h1{letter-spacing:-1px}
 [data-testid="stMetric"]{background:white;padding:18px;border-radius:12px;border:1px solid #e5eaf2}
 [data-testid="stSidebar"]{background:#eaf0f8}</style>''',unsafe_allow_html=True)
-store = Store(os.environ.get('V2_DATA_DIR',str(Path(__file__).with_name('runtime'))))
+public_demo = '_portfolio_store' in globals()
+store = _portfolio_store if public_demo else Store(os.environ.get('V2_DATA_DIR',str(Path(__file__).with_name('runtime'))))
 if getattr(store,'api_version',0)<3:
     service=importlib.reload(importlib.import_module('v2.service'))
     for module in ('v2.metrics','v2.revisions','v2.alerts','v2.phase2_ui'):
@@ -27,18 +28,21 @@ if getattr(store,'api_version',0)<3:
 with st.sidebar:
     st.title('经营监控 V2')
     st.caption('第二阶段 · 经营指标与规则预警')
-    space = st.radio('数据空间',['模拟演示','业务数据','第二阶段独立模拟演示'])
+    space = st.radio('数据空间',['Synthetic 独立会话'] if public_demo else ['模拟演示','业务数据','第二阶段独立模拟演示'])
     workspace = 'business' if space=='业务数据' else 'demo'
     if space=='第二阶段独立模拟演示':
         store=Store(store.root/'phase2_demo')
-    actor = st.text_input('操作员',value='本地操作员')
-    section=st.radio('功能导航',['数据运营工作台','经营分析','经营日报','智能预警','数据修订','规则配置'])
+    actor = st.text_input('操作员',value='模拟访客' if public_demo else '本地操作员',max_chars=80 if public_demo else None)
+    section=st.radio('功能导航',['数据运营工作台','经营分析','经营日报','智能预警','数据修订','规则配置'], index=1 if public_demo else 0)
     st.divider()
     st.info('USD · 单 SKU 订单\n\n收入、退款确认月及成本口径沿用 V1。')
-    st.caption('模拟演示和业务数据独立保存。业务空间从空库开始，请上传自己的主数据。')
-    st.caption('第二阶段独立模拟演示使用单独数据库，避免与第一阶段商品/库存模拟场景冲突；不删除任何已有场景。')
+    st.caption('仅本会话有效；30分钟无操作或2小时后重建，刷新/断线可能丢失。请勿输入真实业务或个人信息。' if public_demo else '模拟演示和业务数据独立保存。业务空间从空库开始，请上传自己的主数据。')
+    if not public_demo:
+        st.caption('第二阶段独立模拟演示使用单独数据库，避免与第一阶段商品/库存模拟场景冲突；不删除任何已有场景。')
 
 st.title('跨境电商智能经营监控与自动化预警')
+if public_demo:
+    st.info('公开 Synthetic 演示：审核、修订和检测只影响你的临时副本；不代表真实经营收益。任意文件上传已禁用。首次初始化使用既有规则服务生成模拟证据，保存时间不等于历史经营日。')
 st.caption(f'{space} / 数据质量 → 异常隔离 → 人工审核 → 有效样本经营指标')
 # Keep a stable container position so a flash disappearing cannot reset the tab.
 with st.container():
@@ -66,7 +70,7 @@ if 'sales_records' not in m:
     m = store.metrics(workspace)
 if section!='数据运营工作台':
     from v2.phase2_ui import render
-    render(store,workspace,actor,section)
+    render(store,workspace,actor,section,public_demo=public_demo)
     st.stop()
 has_data = workspace_has_data(store, workspace)
 strict_display = MetricCenter(store).calculate(workspace)
@@ -94,34 +98,37 @@ with st.expander('逐笔销售额来源（当前空间全部有效批次）'):
 upload_tab,quality_tab,review_tab,ledger_tab = st.tabs(['数据导入','质量检查','异常审核','批次与日志'])
 
 with upload_tab:
-    st.subheader('上传业务数据')
-    st.write('CSV 选择对应业务表；单表 Excel 选择对应表；多表 Excel 选择 workbook，工作表名使用业务表名。')
-    kind = st.selectbox('业务表类型',list(SCHEMAS)+['workbook'])
-    uploaded = st.file_uploader('选择 CSV 或 Excel 文件',type=['csv','xlsx'])
-    if not actor.strip():
-        st.error('请在左侧填写操作员后导入或审核。')
-    if st.button('导入上传文件',type='primary',disabled=uploaded is None or not actor.strip()):
-        st.session_state.flash = store.ingest(uploaded.name,uploaded.getvalue(),kind,workspace,actor)
-        st.rerun()
-    template = SCHEMAS['orders' if kind=='workbook' else kind]
-    st.download_button('下载字段模板 CSV',pd.DataFrame(columns=template).to_csv(index=False).encode('utf-8-sig'),file_name=f'{kind}_template.csv')
-    if workspace=='demo':
-        st.divider()
-        st.subheader('三种模拟测试场景')
-        st.caption('正常场景：销售额 35、毛利 19、9月贡献 10、10月确认退款 5、跨月合计贡献 5。')
-        st.info('上述预期适用于空演示空间只导入正常数据。三个场景累计保存在同一空间；正常/重复按钮不会清空历史。错误场景的 UNKNOWN_SKU 订单另计收入 35、隔离利润，累计销售额可为 70、9月贡献仍为 10。')
-        a,b,c = st.columns(3)
-        # Use bundled immutable fixture for byte-identical repeated uploads.
-        fixture = Path(__file__).with_name('demo_data')/'normal.xlsx'
-        if a.button('1 · 导入正常数据',disabled=not actor.strip()):
-            st.session_state.flash = store.ingest('normal.xlsx',fixture.read_bytes(),'workbook',workspace,actor)
+    if public_demo:
+        st.info('公开演示不接收上传文件。已预载14天 Synthetic 六表；完整导入功能请使用本地版。')
+    else:
+        st.subheader('上传业务数据')
+        st.write('CSV 选择对应业务表；单表 Excel 选择对应表；多表 Excel 选择 workbook，工作表名使用业务表名。')
+        kind = st.selectbox('业务表类型',list(SCHEMAS)+['workbook'])
+        uploaded = st.file_uploader('选择 CSV 或 Excel 文件',type=['csv','xlsx'])
+        if not actor.strip():
+            st.error('请在左侧填写操作员后导入或审核。')
+        if st.button('导入上传文件',type='primary',disabled=uploaded is None or not actor.strip()):
+            st.session_state.flash = store.ingest(uploaded.name,uploaded.getvalue(),kind,workspace,actor)
             st.rerun()
-        if b.button('2 · 重复上传',disabled=not actor.strip()):
-            st.session_state.flash = store.ingest('duplicate.xlsx',fixture.read_bytes(),'workbook',workspace,actor)
-            st.rerun()
-        if c.button('3 · 导入错误数据',disabled=not actor.strip()):
-            st.session_state.flash = store.ingest('errors.csv',error_csv(),'orders',workspace,actor)
-            st.rerun()
+        template = SCHEMAS['orders' if kind=='workbook' else kind]
+        st.download_button('下载字段模板 CSV',pd.DataFrame(columns=template).to_csv(index=False).encode('utf-8-sig'),file_name=f'{kind}_template.csv')
+        if workspace=='demo':
+            st.divider()
+            st.subheader('三种模拟测试场景')
+            st.caption('正常场景：销售额 35、毛利 19、9月贡献 10、10月确认退款 5、跨月合计贡献 5。')
+            st.info('上述预期适用于空演示空间只导入正常数据。三个场景累计保存在同一空间；正常/重复按钮不会清空历史。错误场景的 UNKNOWN_SKU 订单另计收入 35、隔离利润，累计销售额可为 70、9月贡献仍为 10。')
+            a,b,c = st.columns(3)
+            # Use bundled immutable fixture for byte-identical repeated uploads.
+            fixture = Path(__file__).with_name('demo_data')/'normal.xlsx'
+            if a.button('1 · 导入正常数据',disabled=not actor.strip()):
+                st.session_state.flash = store.ingest('normal.xlsx',fixture.read_bytes(),'workbook',workspace,actor)
+                st.rerun()
+            if b.button('2 · 重复上传',disabled=not actor.strip()):
+                st.session_state.flash = store.ingest('duplicate.xlsx',fixture.read_bytes(),'workbook',workspace,actor)
+                st.rerun()
+            if c.button('3 · 导入错误数据',disabled=not actor.strip()):
+                st.session_state.flash = store.ingest('errors.csv',error_csv(),'orders',workspace,actor)
+                st.rerun()
     st.subheader('按月有效样本')
     if m['monthly']:
         from v2.metrics import MetricCenter
@@ -161,7 +168,7 @@ with review_tab:
             st.json({'原始值':json.loads(item.raw_json),'批次':item.batch_id,'原文件行号':int(item.source_row),'硬性隔离':bool(item.hard)})
         with st.form('review_form'):
             status = st.selectbox('审核结论',['待核实','确认','驳回'])
-            note = st.text_area('处理说明（必填）')
+            note = st.text_area('处理说明（必填）',max_chars=2000 if public_demo else None)
             submit = st.form_submit_button('保存审核',type='primary')
         if submit:
             try:
@@ -187,7 +194,7 @@ with ledger_tab:
     st.subheader('操作日志（追加保存）')
     logs = store.query('SELECT * FROM operation_logs WHERE workspace=? ORDER BY id DESC',(workspace,))
     st.dataframe(display_times(logs),width='stretch',hide_index=True)
-    if workspace=='demo':
+    if workspace=='demo' and not public_demo:
         st.divider()
         st.subheader('第二阶段 · Synthetic / 14天模拟业务')
         st.caption('含两个7天可比窗口、库存、广告、退款、未知成本及负价异常；累计导入当前演示空间，不清空历史。')

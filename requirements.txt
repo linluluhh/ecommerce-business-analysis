@@ -1,10 +1,6 @@
-# Analysis dependencies. The data generator uses only Python standard library.
-pandas>=2.0,<3.0
-numpy>=1.26,<3.0
-jupyterlab>=4.0,<5.0
-matplotlib>=3.8,<4.0
-seaborn>=0.13,<0.14
-plotly>=5.0,<7.0
-nbformat>=5.0,<6.0
-nbclient>=0.8,<1.0
-ipykernel>=6.0,<7.0
+# Minimal public app runtime; Python 3.11. No testing or notebook dependencies.
+streamlit==1.65.0
+pandas==2.3.3
+numpy==2.4.6
+openpyxl==3.1.5
+tzdata>=2024.1

@@ -1,5 +1,5 @@
 from copy import deepcopy
-from datetime import date
+from datetime import date, datetime, timedelta
 from html import escape
 import json
 
@@ -51,8 +51,10 @@ def test_latest_detection_dedup_tie_break_and_versions_stay_separate(tmp_path):
     store, engine = historical(tmp_path)
     first = store.query('SELECT * FROM alert_detections ORDER BY id').iloc[0]
     evidence = json.loads(first.evidence_json)
-    id1 = append_detection(store, int(first.alert_id), evidence)
-    id2 = append_detection(store, int(first.alert_id), evidence, value=124)
+    # Relative to the actual seed detection, not a wall-clock date that expires.
+    later = (datetime.fromisoformat(first.created_at) + timedelta(seconds=1)).isoformat()
+    id1 = append_detection(store, int(first.alert_id), evidence, stamp=later)
+    id2 = append_detection(store, int(first.alert_id), evidence, stamp=later, value=124)
     rows = read_history(store, 'demo', '2026-09-14')['entries']
     assert id2 in {r['detection_id'] for r in rows} and id1 not in {r['detection_id'] for r in rows}
     alert = store.query('SELECT * FROM alerts WHERE id=?', (int(first.alert_id),)).iloc[0]

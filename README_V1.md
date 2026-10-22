@@ -134,7 +134,7 @@ python scripts/weekly_report.py --start 2026-09-21 --end 2026-09-27
 python scripts/validate_project_v1.py
 ```
 
-也可用 `requirements.txt` 安装兼容范围，锁定文件记录已测试版本。Windows无法激活时直接用 `./.venv/Scripts/python.exe` 替代命令中的`python`，无需修改系统策略。安装依赖需要网络；核心分析不需要Node、Codex插件或私有运行库。
+也可用 `requirements-v1.txt` 安装兼容范围，锁定文件记录已测试版本。Windows无法激活时直接用 `./.venv/Scripts/python.exe` 替代命令中的`python`，无需修改系统策略。安装依赖需要网络；核心分析不需要Node、Codex插件或私有运行库。
 
 **数据准备：** 六张完整模拟raw及SHA-256清单已在仓库，无需生成或下载额外业务数据。流水线不调用生成脚本、不修改raw，重跑会覆盖派生结果。
 

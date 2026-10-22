@@ -3,7 +3,7 @@
 当前功能版本为 V2.1 C2。完整背景、功能和安装入口见[根 README](../README.md)，不要用 V1 的运行脚本启动本应用。
 
 - 入口：`v2/app.py`，Streamlit 六个导航：数据运营工作台、经营分析、经营日报、智能预警、数据修订、规则配置。
-- 依赖：`v2/requirements-lock.txt` 为验收锁定版本；`v2/requirements.txt` 为兼容范围。Python 3.11，Windows/Edge 实测。
+- 依赖：`v2/requirements-lock.txt` 为验收锁定版本；`v2/requirements.txt` 引用根目录精简运行依赖；测试依赖另见 `v2/requirements-dev.txt`。Python 3.11，Windows/Edge 实测。
 - 默认数据目录：`v2/runtime/`；`V2_DATA_DIR` 可指定独立目录。业务和模拟空间逻辑隔离，第二阶段模拟另用 `phase2_demo/`。
 - 样例：`v2/demo_data/phase2_synthetic.xlsx`，全部 Synthetic；[演示步骤](../docs/portfolio/DEMO.md)说明审核和修订的不同路线。
 - 备份：停止应用后复制整个数据目录；不把数据库、上传原件、备份或日志提交到公开仓库。
@@ -48,3 +48,5 @@ node v2/daily_report_browser.cjs
 ## 当前限制
 
 手动触发检测，无计划任务/通知/平台同步/AI 助手/生产权限。小批量全量重评、单币种、静态成本、单 SKU 订单。凭证与操作员为本地引用/自报标识。原文件与 SQLite 非同一原子事务，未收齐数据不等于零业务。日报历史证据不能还原完整历史状态。
+
+公开隔离入口为 `v2/portfolio_app.py`，仅 Synthetic 临时会话、禁用上传，详见[云端部署候选](../docs/portfolio/CLOUD_DEPLOY.md)。本地完整入口不变。
