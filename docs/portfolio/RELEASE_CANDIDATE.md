@@ -1,5 +1,7 @@
 # V2.1 本地发布候选
 
+> **当前状态更新（2026-10-26）：** 本文保留早期本地候选策略与当时的命令，不作为当前操作指令。公开Synthetic演示已上线；当前发布使用release/v2.1-streamlit-deploy，按用户授权先普通推送部署分支，再核对远程main并快进同一提交。若分支变化或推送失败即停止，不强推。求职入口见[首页](../../README.md)与[业务案例](BUSINESS_CASE.md)。
+
 ## 基线与策略
 
 - 目标：`https://github.com/linluluhh/ecommerce-business-analysis` 的 `main`。

@@ -1,6 +1,6 @@
 # Streamlit Community Cloud 公开演示说明
 
-入口：`v2/portfolio_app.py`。公开 Synthetic 演示已上线，2026-10-26 已通过真实 Edge 线上业务实操核对：[在线体验](https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/)。部署分支为 `release/v2.1-streamlit-deploy`。以下保留隔离设计及2026-10-22历史验收，当前展示见 [SHOWCASE](SHOWCASE.md)。本轮只整理文档与素材，未重新部署。
+入口：`v2/portfolio_app.py`。公开 Synthetic 演示已上线，2026-10-26 已通过真实 Edge 线上业务实操核对：[在线体验](https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/)。部署分支为 `release/v2.1-streamlit-deploy`。以下保留隔离设计及2026-10-22历史验收，当前展示见 [SHOWCASE](SHOWCASE.md)。本次发布只整理文档与素材，不修改云端部署设置或应用入口；GitHub分支推送可能触发平台已有的自动构建，不等于手动更改部署配置。
 
 ## 两种运行模式
 

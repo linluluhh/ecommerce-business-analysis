@@ -155,6 +155,15 @@
       ],
       "file": "daily.png",
       "sha256": "cf0ad52778b512adf9457f32960bf95ff3f416e477172b184c1bc54c0ff24fd1"
+    },
+    {
+      "id": "F-rules",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "captureDate": "2026-10-26",
+      "source": "earlier online business review, original unaltered Edge screenshot",
+      "file": "rules.png",
+      "sha256": "23110dc84cb1520792e0e7895260d264fa34c3831eedbfff19eb34b940eaa612",
+      "note": "Actual configuration view; no rule edits performed"
     }
   ],
   "notes": [

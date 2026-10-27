@@ -1,5 +1,7 @@
 # V2.1 展示材料、验证证据与公开发布说明
 
+> **当前状态更新（2026-10-26）：** V2.1公开Synthetic演示已上线，[在线体验](https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/)。当前求职材料见[业务案例](BUSINESS_CASE.md)、[面试指南](INTERVIEW_GUIDE.md)和[线上截图](SHOWCASE.md)。本页下文是2026-10-21历史整理记录；“未推送、未部署”等表述仅描述当时，不代表当前状态。正式GitHub版本以[main](https://github.com/linluluhh/ecommerce-business-analysis/tree/main)与提交记录为准。
+
 整理日期：2026-10-21。发布候选采用 origin/main 上的单次文件快照；本地 V2 中间开发历史不进入发布分支。详见 [本次发布候选](RELEASE_CANDIDATE.md)。功能基线：`3739832fa4d2adf6becebfe213616233e8b0ad5f`。本轮只更新文档、展示副本及发布相关忽略/脱敏配置，不修改业务计算。未推送、未部署、未合并主分支。
 
 ## 截图来源

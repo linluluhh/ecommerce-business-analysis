@@ -1,5 +1,7 @@
 # V2.1 求职作品集展示成果说明
 
+> **发布阶段更新（2026-10-26）：** 以下是展示材料制作及验证记录。其“未推送、由作者决定发布”描述上一阶段的边界；现已获得普通推送及main快进授权，发布结果以GitHub分支实际提交为准。当前完整运营案例见[BUSINESS_CASE](BUSINESS_CASE.md)，岗位面试资料见[INTERVIEW_GUIDE](INTERVIEW_GUIDE.md)。视频仍未公开托管，不新增虚构播放链接。
+
 [在线体验](https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/) · [README](../../README.md) · [完整面试案例](INTERVIEW_CASE.md) · [逐句讲稿与时间轴](VIDEO_SCRIPT.md)
 
 ## 展示目标与实际交付

@@ -49,4 +49,4 @@ node v2/daily_report_browser.cjs
 
 手动触发检测，无计划任务/通知/平台同步/AI 助手/生产权限。小批量全量重评、单币种、静态成本、单 SKU 订单。凭证与操作员为本地引用/自报标识。原文件与 SQLite 非同一原子事务，未收齐数据不等于零业务。日报历史证据不能还原完整历史状态。
 
-公开隔离入口为 `v2/portfolio_app.py`，仅 Synthetic 临时会话、禁用上传，详见[云端部署候选](../docs/portfolio/CLOUD_DEPLOY.md)。本地完整入口不变。
+公开隔离入口为 `v2/portfolio_app.py`，仅 Synthetic 临时会话、禁用上传，详见[已上线公开演示说明](../docs/portfolio/CLOUD_DEPLOY.md)。本地完整入口不变。
