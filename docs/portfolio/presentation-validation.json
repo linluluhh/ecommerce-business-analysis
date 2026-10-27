@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-26",
+  "scope": "presentation-only; no application logic, schema or rule changes",
+  "documents": {
+    "passed": true,
+    "relativeLinksChecked": 75,
+    "screenshots": 14,
+    "publicAssetFiles": 19,
+    "errors": [],
+    "scope": "presentation documents and media only; no application tests rerun"
+  },
+  "video": {
+    "video": "ecommerce-v21-demo-zh-CN.mp4",
+    "durationSeconds": 300,
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "audio": false,
+    "bytes": 6130238,
+    "type": "real-online-screenshot-edit",
+    "subtitleCues": 36,
+    "chapters": [
+      {
+        "start": 0.0,
+        "title": "01 / 项目介绍"
+      },
+      {
+        "start": 25.0,
+        "title": "02 / 订单质量治理"
+      },
+      {
+        "start": 70.0,
+        "title": "03 / 商品经营分析"
+      },
+      {
+        "start": 110.0,
+        "title": "04 / 智能经营预警"
+      },
+      {
+        "start": 150.0,
+        "title": "05 / 修订与指标重算"
+      },
+      {
+        "start": 210.0,
+        "title": "06 / 经营日报与汇报"
+      },
+      {
+        "start": 265.0,
+        "title": "07 / 总结与边界"
+      }
+    ]
+  },
+  "playback": {
+    "passed": true,
+    "browser": "Microsoft Edge / Playwright",
+    "duration": 300,
+    "width": 1920,
+    "height": 1080,
+    "codecSupport": "probably",
+    "playbackAdvancedSeconds": 1.2249,
+    "seekChecks": [
+      {
+        "time": 1,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 30,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 75,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 120,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 170,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 195,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 220,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 245,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 275,
+        "error": null,
+        "readyState": 4
+      },
+      {
+        "time": 295,
+        "error": null,
+        "readyState": 4
+      }
+    ]
+  },
+  "sha256": "aa7fce7903abc9257723c78839c264002f853684e9c4dfdfb4783da2a3656cb2",
+  "fullDecode": {
+    "passed": true,
+    "frames": 7200,
+    "durationSeconds": 300
+  },
+  "readmePreview": {
+    "passed": true,
+    "imagesLoaded": 6
+  },
+  "capture": {
+    "passed": true,
+    "checkpoints": 27,
+    "synthetic": true
+  },
+  "noPush": true,
+  "noRedeployment": true
+}

@@ -1,0 +1,6 @@
+V2.1公开入口本地验收原始输出摘要（历史证据，非本轮重跑）
+日期：2026-10-22
+来源：deploy-validation中的specialist-final.log与full-final.log
+专项：12 passed in 17.74s
+全量：188 passed in 154.09s (0:02:34)
+原记录见CLOUD_DEPLOY.md的2026-10-22结果；不证明生产级可靠性。

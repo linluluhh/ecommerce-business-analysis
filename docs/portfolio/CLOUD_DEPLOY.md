@@ -1,6 +1,6 @@
-# Streamlit Community Cloud 部署候选（尚未上线）
+# Streamlit Community Cloud 公开演示说明
 
-入口：`v2/portfolio_app.py`。本候选建立在 V2.1 发布快照 `eb6ef2324585e0204bc809ec1e1d9c9143a9014e` 上；未推送、未部署，没有公开访问网址。
+入口：`v2/portfolio_app.py`。公开 Synthetic 演示已上线，2026-10-26 已通过真实 Edge 线上业务实操核对：[在线体验](https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/)。部署分支为 `release/v2.1-streamlit-deploy`。以下保留隔离设计及2026-10-22历史验收，当前展示见 [SHOWCASE](SHOWCASE.md)。本轮只整理文档与素材，未重新部署。
 
 ## 两种运行模式
 
@@ -39,18 +39,18 @@ v2/.venv/Scripts/python.exe -m pip install -r requirements.txt
 v2/.venv/Scripts/python.exe -m streamlit run v2/portfolio_app.py --server.address 127.0.0.1 --server.port 8547
 ```
 
-macOS/Linux 使用虚拟环境下 `bin/python`，从仓库根目录执行相同模块命令。路径均由 `__file__` 或系统临时目录构造，无 Windows 驱动器依赖。当前实际验证环境为 Windows/Edge；Linux 云端实际启动需授权发布后核验。
+macOS/Linux 使用虚拟环境下 `bin/python`，从仓库根目录执行相同模块命令。路径均由 `__file__` 或系统临时目录构造，无 Windows 驱动器依赖。当前实际验证环境为 Windows/Edge；2026-10-26公开网址已可访问；本轮未重新安装云端环境。
 
 本地完整入口仍可使用首页命令（`v2/app.py`、上传上限显式设为 20 MiB）。根配置的公开默认上传上限为 2 MiB，但公开入口根本不提供上传；原本地命令显式参数优先。`V2_DATA_DIR` 只对本地完整入口生效。
 
-## 云端配置（获得推送与部署授权后）
+## 已使用的云端配置（保留供维护参考，本轮不执行）
 
-1. 推送本候选至获授权的 GitHub 分支；不要直接用旧 V1 main 部署。
+1. 已使用 `release/v2.1-streamlit-deploy` 分支；未来推送或部署仍需另行授权。
 2. 在 Community Cloud 选择仓库 `linluluhh/ecommerce-business-analysis`、实际推送分支、入口 `v2/portfolio_app.py`。
 3. Advanced settings 选择 Python **3.11**。不需要 secrets，也不要填写真实业务数据库配置。
 4. 使用根 `.streamlit/config.toml`；开启 headless、关闭使用统计、隐藏访客堆栈详情，未关闭 XSRF/CORS 保护。
 5. 依赖：根 `requirements.txt` 仅 Streamlit、Pandas、NumPy、openpyxl、tzdata；入口目录 `v2/requirements.txt` 引用 `../requirements.txt`。不装 Jupyter、绘图库或 pytest。开发测试另用 `v2/requirements-dev.txt`，V1 兼容依赖保存为 `requirements-v1.txt`。
-6. 冷启动后用两个浏览器上下文验证互不影响，核对下载和重置，再记录真实网址。尚无网址时不可在 README 放置虚构链接。
+6. 冷启动后用两个浏览器上下文验证互不影响，核对下载和重置，再记录真实网址。公开地址见本文顶部；实际证据记录见作品集展示说明。
 
 官方依据：[工作目录与配置](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization)、[入口目录依赖优先级](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies)。
 
@@ -66,12 +66,12 @@ Edge/Playwright 验证脚本 `v2/portfolio_browser.cjs`：安装既有文档所�
 
 验证输出位于忽略的 `v2/runtime/deploy-validation/`，不会提交临时数据库或原始日志。V2.1 原有 176 passed 是历史证据，本候选以本轮实际测试结果为准。
 
-## 本轮本地结果（2026-10-22）
+## 历史本地结果（2026-10-22）
 
 - 隔离/初始化/清理/入口专项：12 passed（17.74 秒）。
 - 最终全量：188 passed（154.09 秒）。首次全量为 187 passed、1 failed：旧 C2 测试把固定零点当成未来检测时间；已改为相对种子记录时间，未修改历史证据业务逻辑，随后有针对性重跑全量。
 - Edge：两个真实上下文初始化、A 修订审批/B 不变、重置、质量与日报 HTML 下载及断网打开均通过，页面错误列表为空。浏览器初次读取旧页面/假定重置跳转的等待脚本已修正。
-- 入口目录依赖 dry-run（已有环境）与 pip check 通过；没有进行全新 Linux 安装或云端部署，授权后仍需核验平台冷启动。
+- 入口目录依赖 dry-run（已有环境）与 pip check 通过；当时没有进行全新 Linux 安装或云端部署；后续2026-10-26线上可访问性与业务操作另有独立证据。
 - 指标、质量规则、13 条预警、审核修订服务及 SQL 结构未修改；本地原有测试全部通过。
 
 原始证据：`v2/runtime/deploy-validation/specialist-final.log`、`full-final.log`、`browser/results.json` 与浏览器截图（均留本地，不公开提交运行产物）。

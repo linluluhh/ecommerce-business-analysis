@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>数据质量报告</title><style>body{font:16px sans-serif;max-width:1200px;margin:32px auto;padding:16px;color:#182638}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd4df;padding:8px;text-align:left;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}h2{margin-top:32px}</style><h1>数据质量报告 · V2.1</h1><p>数据空间：Synthetic 独立会话</p><p>生成时间：2026-10-26 20:14</p><p>时区：Asia/Shanghai</p><p>数据状态：请核查数据限制</p><p>明细包含历史：False</p><h2>筛选条件</h2><table><thead><tr><th>业务表</th><th>来源批次</th><th>异常分类</th><th>审核状态</th></tr></thead><tbody><tr><td>inventory</td><td>全部</td><td>全部</td><td>全部</td></tr></tbody></table><h2>当前有效异常摘要</h2><table><thead><tr><th>有效异常条数</th><th>受影响记录数</th><th>待核实异常数</th><th>直接阻断记录数</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table><h2>分类统计</h2><table><thead><tr><th>异常分类</th><th>异常条数</th><th>受影响记录数</th></tr></thead><tbody><tr><td>业务一致性</td><td>1</td><td>1</td></tr></tbody></table><h2>记录影响</h2><table><thead><tr><th>记录ID</th><th>业务表</th><th>记录当前作用</th><th>业务影响说明</th></tr></thead><tbody><tr><td>101</td><td>inventory</td><td>整行隔离</td><td>库存记录不可用影响库存分析和预警，不代表已经发生缺货损失。</td></tr></tbody></table><h2>口径与限制</h2><ul><li>基于 Synthetic 模拟业务场景的作品集；当前报告仅描述所选空间已导入数据，不代表真实企业收益或账本完整性。</li><li>摘要仅统计有效异常，明细是否包含历史由历史开关决定；异常条数与去重记录数不同，分类记录数不可相加。</li><li>记录当前作用依据该记录全部有效规则判定；直接阻断数不包含推算的下游关联影响。</li><li>确认异常不等于修复；驳回仅可能放行软规则，硬性错误仍阻断。不估算损失金额或综合质量评分。</li><li>来源批次选项来自异常证据；不按业务日期筛选，保留无法解析日期的异常。</li></ul><h2>证据与处理建议</h2><details><summary>异常 #4 · 库存出库数量与有效完成订单数量不符；有效订单样本排除了异常及未知SKU；差异不必然是库存错误</summary><p>先核对源文件和业务键。现有数据修订不支持修改业务键；不要重复上传覆盖，也不要通过驳回硬性错误放行。</p><pre>{
+  &quot;id&quot;: 4,
+  &quot;record_id&quot;: 101,
+  &quot;code&quot;: &quot;inventory_order_difference&quot;,
+  &quot;reason&quot;: &quot;库存出库数量与有效完成订单数量不符；有效订单样本排除了异常及未知SKU；差异不必然是库存错误&quot;,
+  &quot;fields&quot;: &quot;date,sku,opening_stock,inbound_qty,sold_qty,closing_stock&quot;,
+  &quot;severity&quot;: &quot;中&quot;,
+  &quot;scope&quot;: &quot;all&quot;,
+  &quot;hard&quot;: 0,
+  &quot;active&quot;: 1,
+  &quot;status&quot;: &quot;待核实&quot;,
+  &quot;version&quot;: 0,
+  &quot;created_at&quot;: &quot;2026-10-26T12:13:50.823582+00:00&quot;,
+  &quot;table_name&quot;: &quot;inventory&quot;,
+  &quot;business_key&quot;: &quot;[\&quot;2026-09-14\&quot;, \&quot;SKU001\&quot;]&quot;,
+  &quot;batch_id&quot;: &quot;d5984b6d1f354a6ba9a51b33599baf9e&quot;,
+  &quot;source_row&quot;: 28,
+  &quot;raw_json&quot;: &quot;{\&quot;closing_stock\&quot;: \&quot;21\&quot;, \&quot;date\&quot;: \&quot;2026-09-14\&quot;, \&quot;inbound_qty\&quot;: \&quot;0\&quot;, \&quot;opening_stock\&quot;: \&quot;23\&quot;, \&quot;sku\&quot;: \&quot;SKU001\&quot;, \&quot;sold_qty\&quot;: \&quot;2\&quot;}&quot;,
+  &quot;异常分类&quot;: &quot;业务一致性&quot;,
+  &quot;规则作用&quot;: &quot;整行隔离&quot;,
+  &quot;处理建议&quot;: &quot;先核对源文件和业务键。现有数据修订不支持修改业务键；不要重复上传覆盖，也不要通过驳回硬性错误放行。&quot;
+}</pre></details></html>

@@ -1,0 +1,165 @@
+{
+  "synthetic": true,
+  "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+  "captureDate": "2026-10-26",
+  "browser": "Playwright / Microsoft Edge, channel=msedge",
+  "screenshotsUnaltered": true,
+  "shots": [
+    {
+      "id": "01-home",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:11:54.260Z",
+      "expected": [
+        "1364.00 USD"
+      ],
+      "file": "home.png",
+      "sha256": "916063f6961d444f2bcbf0d0169aa9b113834e35c8072f1af953beb3866d12bb"
+    },
+    {
+      "id": "02-baseline",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:11:58.105Z",
+      "expected": [
+        "658.00 USD",
+        "262.00 USD"
+      ],
+      "file": "baseline.png",
+      "sha256": "469caf30a86c1e50312bc52c84f6de9f19a3fe3319f47f638c022896f6a08748"
+    },
+    {
+      "id": "04-quality-summary",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:12:09.078Z",
+      "expected": [],
+      "file": "quality.png",
+      "sha256": "7ae6477d969a734e08595f343b7856d131d553f20ef3dfcc1fc221b7d5622e75"
+    },
+    {
+      "id": "05-negative-price",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:12:16.316Z",
+      "expected": [
+        "SYNTH-BAD",
+        "invalid_price",
+        "-10"
+      ],
+      "file": "negative-price.png",
+      "sha256": "2bc9cf79c2143392ae06738b37518d5dac8ab4c289d1ceb5816459e6c78f8b49"
+    },
+    {
+      "id": "08-unknown-cost",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:12:34.236Z",
+      "expected": [
+        "SYNTH-UNKNOWN",
+        "SKU999"
+      ],
+      "file": "unknown-cost.png",
+      "sha256": "158c514869535279c7937d1140ecbdffd426ce49d36637dbec8f46c5c3636dff"
+    },
+    {
+      "id": "09-sku001",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:12:45.485Z",
+      "expected": [
+        "924.00 USD",
+        "532.00 USD"
+      ],
+      "file": "sku001.png",
+      "sha256": "f6a7600adc989d0a1052580266ae30ae12c6bd3ccc7e17d192cbb006e2dd7862"
+    },
+    {
+      "id": "10-sku002",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:12:52.543Z",
+      "expected": [
+        "420.00 USD",
+        "126.00 USD",
+        "数据不足"
+      ],
+      "file": "sku002.png",
+      "sha256": "82d9d936bf8da9a71478fe05f0b66d1ff5fc5c82edce44af060c86782fd115ae"
+    },
+    {
+      "id": "13-alert-evidence",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:13:20.743Z",
+      "expected": [
+        "平台12天退款订单率"
+      ],
+      "file": "alert.png",
+      "sha256": "ec3b034da5d62d065b4934e1985fecdbd518f28ddbeebc7d6e403065b9710f43"
+    },
+    {
+      "id": "14-alert-handled",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:13:28.241Z",
+      "expected": [
+        "处理中",
+        "预警处理已保存"
+      ],
+      "file": "alert-handled.png",
+      "sha256": "e4620366f2d3ccd2138cc0d6e6ca436af934aa88445a813c29a15e3855f36db0"
+    },
+    {
+      "id": "15-revision-form",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:13:41.564Z",
+      "expected": [
+        "-10"
+      ],
+      "file": "revision.png",
+      "sha256": "cec31c5177a015927a626edc6359d0681f3c2038bb084c98a2b7e2d00b32a91b"
+    },
+    {
+      "id": "18-revision-approved",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:13:57.101Z",
+      "expected": [
+        "已批准",
+        "SYNTH-PORTFOLIO-PRICE20"
+      ],
+      "file": "approval.png",
+      "sha256": "05035e4a160c898e314830c50c8faf7365e360da2a0758a55ca532f038b6e3e1"
+    },
+    {
+      "id": "19-recomputed",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:14:04.055Z",
+      "expected": [
+        "1384.00 USD",
+        "670.00 USD",
+        "272.00 USD"
+      ],
+      "file": "recomputed.png",
+      "sha256": "d8a34a19f65cda49be6d9d111d5ef41ed841f0105e771e5f44594d9559d37b8e"
+    },
+    {
+      "id": "20-inventory-difference",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:14:17.284Z",
+      "expected": [
+        "库存出库数量与有效完成订单数量不符"
+      ],
+      "file": "inventory.png",
+      "sha256": "46aa7acf661b11778b9d0ea4ed89e0cdc898431126513dbebf47dd8763a294df"
+    },
+    {
+      "id": "23-daily-after",
+      "url": "https://ecommerce-business-analysis-izcmrhydxddnasxqdbdxxr.streamlit.app/",
+      "capturedAt": "2026-10-26T12:14:36.356Z",
+      "expected": [
+        "112.00 USD",
+        "2.00 USD",
+        "0.56倍"
+      ],
+      "file": "daily.png",
+      "sha256": "cf0ad52778b512adf9457f32960bf95ff3f416e477172b184c1bc54c0ff24fd1"
+    }
+  ],
+  "notes": [
+    "公开Synthetic独立会话，非真实企业数据",
+    "拍摄时间为UTC；业务日期另见页面",
+    "全部27个操作检查点成功；非阻断统计脚本请求ERR_ABORTED已保留在本地记录"
+  ]
+}
